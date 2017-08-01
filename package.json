@@ -1,5 +1,5 @@
 {
-  "name": "Controversies of Science API Scripts",
+  "name": "controversy-scripts",
   "version": "1.0.0",
   "description": "Suite of tools to simplify management of backend API",
   "main": "index.js",
