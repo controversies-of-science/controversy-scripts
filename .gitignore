@@ -1,0 +1,8 @@
+node_modules
+keys.env
+pyramid_files
+pyramid.dzi
+
+/md
+/json
+/img

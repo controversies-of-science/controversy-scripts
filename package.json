@@ -1,0 +1,40 @@
+{
+  "name": "mongo",
+  "version": "1.0.0",
+  "description": "MongoDB backend for the Controversies of Science API",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "node src/js/scrape.js",
+    "build": "babel src/es6 --out-dir src/js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worldviewer/controversy-api.git"
+  },
+  "author": "Chris Reeve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/worldviewer/controversy-api/issues"
+  },
+  "homepage": "https://github.com/worldviewer/controversy-api#readme",
+  "dependencies": {
+    "front-matter": "^2.1.2",
+    "he": "^1.1.1",
+    "load-json-file": "^2.0.0",
+    "mongodb": "^2.2.24",
+    "pagedown": "^1.1.0",
+    "request": "^2.79.0",
+    "slugify": "^1.1.0",
+    "thumbnail": "^0.1.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.16.0"
+  }
+}
