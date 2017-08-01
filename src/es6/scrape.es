@@ -1,10 +1,10 @@
-const
-	Db = require('mongodb').Db,
-	Server = require('mongodb').Server,
-	MongoClient = require('mongodb').MongoClient,
-	ObjectId = require('mongodb').ObjectId;
+// const
+// 	Db = require('mongodb').Db,
+// 	Server = require('mongodb').Server,
+// 	MongoClient = require('mongodb').MongoClient,
+// 	ObjectId = require('mongodb').ObjectId;
 
-let db = null;
+// let db = null;
 
 const
 	fs = require('fs'),
@@ -19,16 +19,16 @@ const
 	markdownConverter = pageDown.getSanitizingConverter();
 
 // MongoDB configuration
-let mongodb = {
-		port: 27017,
-		host: 'localhost',
-		dbName: 'controversies'
-	};
+// let mongodb = {
+// 		port: 27017,
+// 		host: 'localhost',
+// 		dbName: 'controversies'
+// 	};
 
-	mongodb.url = `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.dbName}`;
+// 	mongodb.url = `mongodb://${mongodb.host}:${mongodb.port}/${mongodb.dbName}`;
 
 const
-	feedThumbnailSize = 506,
+	feedThumbnailSize = 105, // was 506
 
 	// Hard-coded local data directory structures
 	dir = {
