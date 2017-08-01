@@ -1,7 +1,7 @@
 {
-  "name": "mongo",
+  "name": "Controversies of Science API Scripts",
   "version": "1.0.0",
-  "description": "MongoDB backend for the Controversies of Science API",
+  "description": "Suite of tools to simplify management of backend API",
   "main": "index.js",
   "scripts": {
     "scrape": "node src/js/scrape.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/worldviewer/controversy-api.git"
+    "url": "git+https://github.com/controversies-of-science/controversy-scripts.git"
   },
   "author": "Chris Reeve",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/worldviewer/controversy-api/issues"
+    "url": "https://github.com/controversies-of-science/controversy-scripts/issues"
   },
-  "homepage": "https://github.com/worldviewer/controversy-api#readme",
+  "homepage": "https://github.com/controversies-of-science/controversy-scripts#readme",
   "dependencies": {
     "front-matter": "^2.1.2",
     "he": "^1.1.1",
