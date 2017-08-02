@@ -7,6 +7,12 @@
     "scrape-gplus": "node src/js/scrape-gplus.js",
     "create-algolia-cards": "node src/js/create-algolia-cards.js",
     "create-algolia-feeds": "node src/js/create-algolia-feeds.js",
+    "create-dynamo-cards": "node src/js/create-dynamo-cards.js",
+    "create-dynamo-feeds": "node src/js/create-dynamo-feeds.js",
+    "create-card-thumbnails": "node src/js/create-card-thumbnails.js",
+    "create-feed-thumbnails": "node src/js/create-feed-thumbnails.js",
+    "create-card-pyramids": "node src/js/create-card-pyramids.js",
+    "create-feed-pyramids": "node src/js/create-feed-pyramids.js",
     "build": "babel src/es6 --out-dir src/js"
   },
   "repository": {
