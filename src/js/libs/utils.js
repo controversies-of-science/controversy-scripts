@@ -8,13 +8,26 @@ exports.saveImage = saveImage;
 exports.splitText = splitText;
 exports.createThumbnail = createThumbnail;
 exports.removeSystemFiles = removeSystemFiles;
-var fs = require('fs'),
-    Thumbnail = require('thumbnail'),
-    slugify = require('slugify');
+
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var _thumbnail = require('thumbnail');
+
+var _thumbnail2 = _interopRequireDefault(_thumbnail);
+
+var _slugify = require('slugify');
+
+var _slugify2 = _interopRequireDefault(_slugify);
+
+var _config = require('./config');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Slugify controversy card titles, lower the casing, then remove periods and apostrophes
 function createSlug(cardName) {
-	var slugInitial = slugify(cardName),
+	var slugInitial = (0, _slugify2.default)(cardName),
 	    slugLower = slugInitial.toLowerCase(),
 	    slugFinal = slugLower.replace(/['.]/g, '');
 
@@ -24,7 +37,7 @@ function createSlug(cardName) {
 // Captures image from URL to local disk
 function saveImage(url, destination, resolve, reject) {
 	request.get({ url: url, encoding: 'binary' }, function (err, response, body) {
-		fs.writeFile(destination, body, 'binary', function (err) {
+		_fs2.default.writeFile(destination, body, 'binary', function (err) {
 			if (err) {
 				reject(err);
 			} else {
@@ -45,20 +58,28 @@ function splitText(slug, text, breakString) {
 	});
 }
 
-// TODO: Rename resulting file to thumbnail.jpg
 function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise(function (resolve, reject) {
 		if (isAlreadyGenerated) {
 			console.log('Thumbnail already generated for ' + input);
 			resolve();
 		} else {
-			var thumbnail = new Thumbnail(input, output);
+			var thumbnail = new _thumbnail2.default(input, output);
 
-			thumbnail.ensureThumbnail('large.jpg', thumbnailSize, thumbnailSize, function (err, filename) {
+			// null parameter sets height to auto
+			thumbnail.ensureThumbnail('large.jpg', _config.thumbnailSize, null, function (err, filename) {
+
+				console.log('input: ' + input);
+				console.log('output: ' + output);
+				console.log('filename: ' + filename);
+
 				if (err) {
 					reject(err);
 				} else {
-					resolve();
+					// Rename to thumbnail.jpg
+					_fs2.default.rename(input + '/' + filename, input + '/thumbnail.jpg', function () {
+						resolve();
+					});
 				}
 			});
 		}

@@ -62,11 +62,11 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 
 `npm run create-dynamo-feeds` - This resets the controversy feeds endpoint which is used by the `react-worldviewer-app` application.  Be aware that the feeds are pushed into the backend one at a time.
 
-### create-card-thumbnails (SOON)
+### create-card-thumbnails (DONE)
 
 `npm run create-card-thumbnails` - This generates card thumbnails based upon the contents of `img/cards`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
-### create-feed-thumbnails (SOON)
+### create-feed-thumbnails (WIP)
 
 `npm run create-feed-thumbnails` - This generates feed thumbnails based upon the contents of `img/feeds`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 

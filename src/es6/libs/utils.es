@@ -1,7 +1,7 @@
-const
-	fs = require('fs'),
-	Thumbnail = require('thumbnail'),
-	slugify = require('slugify');
+import fs from 'fs';
+import Thumbnail from 'thumbnail';
+import slugify from 'slugify';
+import { thumbnailSize } from './config';
 
 // Slugify controversy card titles, lower the casing, then remove periods and apostrophes
 export function createSlug(cardName) {
@@ -36,7 +36,8 @@ export function splitText(slug, text, breakString) {
 	});
 }
 
-// TODO: Rename resulting file to thumbnail.jpg
+// Generate thumbnail.jpg from large.jpg for entire directory.  Width is set in
+// config.es
 export function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise((resolve, reject) => {
 		if (isAlreadyGenerated) {
@@ -45,11 +46,16 @@ export function createThumbnail(input, output, isAlreadyGenerated) {
 		} else {
 			let thumbnail = new Thumbnail(input, output);
 
-			thumbnail.ensureThumbnail('large.jpg', thumbnailSize, thumbnailSize, (err, filename) => {
+			// null parameter sets height to auto
+			thumbnail.ensureThumbnail('large.jpg', thumbnailSize, null, (err, filename) => {
+
 				if (err) {
 					reject(err);
 				} else {
-					resolve();
+					// Rename to thumbnail.jpg
+					fs.rename(input + '/' + filename, input + '/thumbnail.jpg', () => {
+						resolve();
+					});
 				}
 			});
 		}
