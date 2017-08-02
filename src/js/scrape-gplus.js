@@ -18,22 +18,11 @@ var _loadJsonFile = require('load-json-file');
 
 var _loadJsonFile2 = _interopRequireDefault(_loadJsonFile);
 
-var _frontMatter = require('front-matter');
-
-var _frontMatter2 = _interopRequireDefault(_frontMatter);
-
-var _pagedown = require('pagedown');
-
-var _pagedown2 = _interopRequireDefault(_pagedown);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-// Markdown processor used by Stack Overflow
-
-var GPlus = require('./libs/gplus').default,
-    markdownConverter = _pagedown2.default.getSanitizingConverter();
+var GPlus = require('./libs/gplus').default;
 
 var gplusKeysExist = false;
 

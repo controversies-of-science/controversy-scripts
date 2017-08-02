@@ -6,6 +6,7 @@
   "scripts": {
     "scrape-gplus": "node src/js/scrape-gplus.js",
     "create-algolia-cards": "node src/js/create-algolia-cards.js",
+    "create-algolia-feeds": "node src/js/create-algolia-feeds.js",
     "build": "babel src/es6 --out-dir src/js"
   },
   "repository": {

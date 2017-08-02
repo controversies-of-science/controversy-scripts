@@ -5,12 +5,9 @@ import fs from 'fs';
 import request from 'request';
 import { execSync } from 'child_process';
 import loadJSONFile from 'load-json-file';
-import frontMatter from 'front-matter';
-import pageDown from 'pagedown'; // Markdown processor used by Stack Overflow
 
 const
-	GPlus = require('./libs/gplus').default,
-	markdownConverter = pageDown.getSanitizingConverter();
+	GPlus = require('./libs/gplus').default;
 
 let gplusKeysExist = false;
 
