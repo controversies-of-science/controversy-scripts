@@ -7,6 +7,10 @@ This repo does not require any database or direct interactions with a database. 
 - [aws-lambda-worldviewer-cards-api](https://github.com/controversies-of-science/aws-lambda-worldviewer-cards-api)
 - [aws-lambda-worldviewer-feeds-api](https://github.com/controversies-of-science/aws-lambda-worldviewer-feeds-api)
 
+The [react-worldviewer-app](https://github.com/controversies-of-science/react-worldviewer-app) frontend is the intended recipient of this data.  In particular, `aws-lambda-worldviewer-cards-api` and `aws-lambda-worldviewer-feeds-api` must both be populated in order for the homepage search result links at [https://www.controversiesofscience.com](https://www.controversiesofscience.com) to work.
+
+These four repositories are all necessary to translate the G+ Controversies of Science collection to the Controversies of Science site.
+
 ## Controversy Card Metadata
 
 Successful scraping of the Controversies of Science collection requires that the Google+ API key environment variables are set.
