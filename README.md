@@ -47,7 +47,7 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 - `/json/inputs/cards.json` - a hand-generated list of slugs and values for the cards
 - `/json/generated/gplus-collection.json` - the output of the `scrape-gplus` script
 
-### create-algolia-feeds (WIP)
+### create-algolia-feeds (DONE)
 
 `npm run create-algolia-feeds` - Since Algolia Search must generate results for both cards and feeds, this script generates the Algolia feed JSON.  It combines two inputs:
 
@@ -64,11 +64,11 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 
 ### create-card-thumbnails (SOON)
 
-`npm run create-card-thumbnails` - This generates card thumbnails based upon the contents of `img/cards`.  See `src/es6/libs/config.es` for the thumbnail width setting.
+`npm run create-card-thumbnails` - This generates card thumbnails based upon the contents of `img/cards`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
 ### create-feed-thumbnails (SOON)
 
-`npm run create-feed-thumbnails` - This generates feed thumbnails based upon the contents of `img/feeds`.  See `src/es6/libs/config.es` for the thumbnail width setting.
+`npm run create-feed-thumbnails` - This generates feed thumbnails based upon the contents of `img/feeds`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
 ### create-card-pyramids (LATER)
 
