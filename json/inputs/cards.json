@@ -406,8 +406,8 @@
 		}
 	},
 	{
-		"slug" : "heinsohns-chronology",
-		"short-slug" : "heinsohn",
+		"slug" : "heinsons-chronology",
+		"short-slug" : "heinson",
 		"images" : {
 			"pyramid" : {
 				"maxZoomLevel" : 18,

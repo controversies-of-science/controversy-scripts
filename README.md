@@ -1,20 +1,15 @@
-# Controversies of Science API / Backend
+# Controversies of Science API Scripts
 
-This is the new backend db and controller for the Controversies of Science API.  The former backend was built on top of Apigee's Usergrid NoSQL.  Through those experiences, I have decided to transition this project to a more production-ready database technology.  Fortunately, there are a number of similarities between Usergrid and MongoDB.
+This is a set of scripts which populate both the Controversies of Science /cards and /feeds API backend endpoints.
 
-This repo of course assumes that have mongodb set up and running on your local machine.  If you don't, consider using homebrew:
+This repo does not require any database or direct interactions with a database.  All interactions with the AWS dynamoDB backend occur through AWS API gateways:
 
-    brew install mongodb
-
-## Controversy Card Data
-
-The controversy card data required to test the Halton Arp controversy prototype at https://github.com/worldviewer/react-worldviewer-prototype will soon be hardcoded into the scrape script.  No further action is currently required to set up the backend.
+- [aws-lambda-worldviewer-cards-api](https://github.com/controversies-of-science/aws-lambda-worldviewer-cards-api)
+- [aws-lambda-worldviewer-feeds-api](https://github.com/controversies-of-science/aws-lambda-worldviewer-feeds-api)
 
 ## Controversy Card Metadata
 
-That said, this will not always be the case.  As the prototype builds out, we'll need access to more than just information about the Halton Arp controversy card.  That means grabbing the metadata for all of the current controversy cards in the Controversies of Science collection.
-
-If the scrape script detects that the Google+ API key environment variables are set, it will populate the mongodb database controversy card metadata from the G+ API.
+Successful scraping of the Controversies of Science collection requires that the Google+ API key environment variables are set.
 
 Access to the G+ API requires an API key from Google.  For more information on how to do that, go here:
 
@@ -27,59 +22,61 @@ The scrape script assumes that you have two environmental key variables set, and
 
 These would be set in a file like `.profile` or `.bash_profile` in your root (if you are using a Linux-based machine).
 
-Either way -- with or without metadata -- to set up and populate the Mongodb database, run:
+## Build
 
-    npm run build
-    npm run scrape
+Any changes made to the scripts need to be built with Babel before running:
 
-This will set up the backend with enough data to use the React frontend at https://github.com/worldviewer/react-worldviewer-prototype.
+`npm run build`
 
-## The MongoDB / AWS Lambda Backend MicroServices
+## The Scripts
 
-I will be using AWS Lambda Node deployments for the time being to serve controversy card data, the image pyramid and the image assets.  This is being migrated from a former Usergrid implementation.
+Plural scripts are seed scripts which operate on entire collections.  Any pre-existing data will be wiped out.  The singular versions are additive to what already exists (the atomic versions).
 
-### Controversy Card /metadata Endpoint
+### scrape-gplus
 
-    https://y3uwecnnmb.execute-api.us-east-1.amazonaws.com/dev/metacards
+`npm run scrape-gplus` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.
 
-This repository is at https://github.com/worldviewer/aws-lambda-mongo-metacards-api.
+### create-algolia-cards
 
-### Controversy /card/{id} Endpoint
+`npm run create-algolia-cards` - This script generates the Algolia Search JSON for all controversy cards from scratch, based upon two inputs:
 
-    https://czlxg9sj34.execute-api.us-east-1.amazonaws.com/dev/cards/58b8f1f7b2ef4ddae2fb8b17
+- `/json/inputs/cards.json` - a hand-generated list of slugs and values for the cards
+- `/json/generated/gplus-collection.json` - the output of the `scrape-gplus` script
 
-This repository is at https://github.com/worldviewer/aws-lambda-mongo-cards-api.
+### create-algolia-feeds
 
-### Making the Image Pyramid and Overlay Assets Publicly Available on AWS S3
+`npm run create-algolia-feeds` - Since Algolia Search must generate results for both cards and feeds, this script generates the Algolia feed JSON.
 
-This is best done with the Cyberduck software (which only requires the two AWS keys to log in) -- because Cyberduck simplifies the process of uploading large batches of files.
+### create-dynamo-cards
 
-To make the files publicly accessible, it's necessary to set the bucket policy:
+`npm run create-dynamo-cards` - This resets the controversy cards endpoint which is used by the `react-worldviewer-app` application.
 
-    {
-        "Version": "2008-10-17",
-        "Statement": [
-            {
-                "Sid": "AllowPublicRead",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": "*"
-                },
-                "Action": "s3:GetObject",
-                "Resource": "arn:aws:s3:::controversy-cards-assets/*"
-            }
-        ]
-    }
+### create-dynamo-feeds
 
-To get the image pyramid files ...
+`npm run create-dynamo-feeds` - This resets the controversy feeds endpoint which is used by the `react-worldviewer-app` application.
 
-    https://s3-us-west-1.amazonaws.com/controversy-cards-assets/58b8f1f7b2ef4ddae2fb8b17/pyramid_files
+### create-card-thumbnails
 
-To get the other assets, the base URL will be ...
+`npm run create-card-thumbnails` - This generates card thumbnails based upon the contents of `img/cards`.  See `src/es6/libs/config.es` for the thumbnail width setting.
 
-    https://s3-us-west-1.amazonaws.com/controversy-cards-assets/58b8f1f7b2ef4ddae2fb8b17/assets
+### create-feed-thumbnails
 
-## Data Source
+`npm run create-feed-thumbnails` - This generates feed thumbnails based upon the contents of `img/feeds`.  See `src/es6/libs/config.es` for the thumbnail width setting.
+
+### create-card-pyramids
+
+`npm run create-card-pyramids` - This generates image pyramids based upon the contents of `img/cards`.  Be aware that this script can take a significant amount of time to complete.
+
+### create-feed-pyramids
+
+`npm run create-feed-pyramids` - This generates image pyramids based upon the contents of `img/feeds`.  Be aware that this script can take a significant amount of time to complete.
+
+## TODO
+
+- Implement S3 upload
+- Create singular versions which can operate on just one card or feed
+
+## Controversies of Science Source
 
 The cards are broken down into 6 categories:
 
@@ -93,4 +90,3 @@ The cards are broken down into 6 categories:
 The data is scraped from my Google Plus collection, here:
 
 *Controversies of Science* - https://plus.google.com/collection/Yhn4Y
-

@@ -32,7 +32,6 @@ export const
 
 	// Hard-coded JSON data input
 	input = {
-		proto: 'json/inputs/halton-arp.json',
 		cards: 'json/inputs/cards.json',
 		feeds: 'json/inputs/feeds.json'
 	},

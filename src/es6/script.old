@@ -1,6 +1,9 @@
+import { thumbnailSize, dir, url, input, output, stop } from './libs/config';
+import { createSlug, saveImage, splitText, createThumbnail, removeSystemFiles } from './libs/utils';
+
 let
 	savedCardCount,
-	
+
 	mongo = {
 		cards: { // react-worldviewer-app
 			collection: null,
@@ -32,10 +35,17 @@ let
 	};
 
 // Grab the metadata which has been manually typed in for each controversy card
-.then(() => {
-	return new Promise((resolve, reject) => {
+new Promise((resolve, reject) => {
+	resolve(loadJSONFile(input.gplus));
+})
+
+.then(collection => {
+	google.cards = collection;
+
+	// Grab the metadata which has been manually typed in for each controversy card
+	new Promise((resolve, reject) => {
 		resolve(loadJSONFile(input.cards));
-	});
+	})	
 })
 
 // Compose hardcoded JSON and G+ collection controversy card data
@@ -127,13 +137,9 @@ let
 				json[0]));
 		});
 
-		resolve(dynamoCards);
+		// resolve(dynamoCards);
 		// resolve(mongo.cards.collection.insertMany(mongoCards));
 	});
-})
-
-.then((dynamoCards) => {
-
 })
 
 // Export that composed object to a JSON file, for importing into Algolia search service

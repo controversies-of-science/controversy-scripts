@@ -27,7 +27,6 @@ url = exports.url = {
 
 // Hard-coded JSON data input
 input = exports.input = {
-	proto: 'json/inputs/halton-arp.json',
 	cards: 'json/inputs/cards.json',
 	feeds: 'json/inputs/feeds.json'
 },

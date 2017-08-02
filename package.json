@@ -4,7 +4,8 @@
   "description": "Suite of tools to simplify management of backend API",
   "main": "index.js",
   "scripts": {
-    "scrape": "node src/js/scrape.js",
+    "scrape-gplus": "node src/js/scrape-gplus.js",
+    "create-algolia-cards": "node src/js/create-algolia-cards.js",
     "build": "babel src/es6 --out-dir src/js"
   },
   "repository": {
