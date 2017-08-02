@@ -38,7 +38,7 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 
 ### scrape-gplus
 
-`npm run scrape-gplus` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.
+`npm run scrape-gplus` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.  Beware: It will completely wipe out whatever data is already in that `gplus-collection.json` file.  A more atomic version of this script will be created later.
 
 ### create-algolia-cards
 
@@ -49,15 +49,18 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 
 ### create-algolia-feeds
 
-`npm run create-algolia-feeds` - Since Algolia Search must generate results for both cards and feeds, this script generates the Algolia feed JSON.
+`npm run create-algolia-feeds` - Since Algolia Search must generate results for both cards and feeds, this script generates the Algolia feed JSON.  It combines two inputs:
+
+- `/json/inputs/feeds.json` - a hand-generated list of slugs and values for the feeds
+- `/md/feeds/` - This directory is scanned for subdirectories of the structure `/{controversy-slug}/{feed-slug}`, and the markup is processed for front matter and split by paragraphs, as required by Algolia Search.
 
 ### create-dynamo-cards
 
-`npm run create-dynamo-cards` - This resets the controversy cards endpoint which is used by the `react-worldviewer-app` application.
+`npm run create-dynamo-cards` - This resets the controversy cards endpoint which is used by the `react-worldviewer-app` application.  Be aware that the cards are pushed into the backend one at a time.
 
 ### create-dynamo-feeds
 
-`npm run create-dynamo-feeds` - This resets the controversy feeds endpoint which is used by the `react-worldviewer-app` application.
+`npm run create-dynamo-feeds` - This resets the controversy feeds endpoint which is used by the `react-worldviewer-app` application.  Be aware that the feeds are pushed into the backend one at a time.
 
 ### create-card-thumbnails
 
