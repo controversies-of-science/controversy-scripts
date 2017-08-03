@@ -51,7 +51,8 @@ new Promise(function (resolve, reject) {
 						console.log('Thumbnail generated for ' + algolia.card.images[cardCount]);
 					}
 
-					if (cardCount < algolia.card.images.length) {
+					if (cardCount < algolia.card.images.length - 1) {
+						++cardCount;
 						syncThumbnail();
 					} else {
 						resolve();
@@ -59,8 +60,6 @@ new Promise(function (resolve, reject) {
 				}).catch(function (err) {
 					reject(err);
 				});
-
-				cardCount++;
 			});
 		};
 

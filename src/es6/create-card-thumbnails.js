@@ -45,10 +45,12 @@ new Promise((resolve, reject) => {
 
 				.then(() => {
 					if (!files.includes('thumbnail.jpg')) {
-						console.log('Thumbnail generated for ' + algolia.card.images[cardCount]);
+						console.log('Thumbnail generated for ' +
+							algolia.card.images[cardCount]);
 					}
 
-					if (cardCount < algolia.card.images.length) {
+					if (cardCount < algolia.card.images.length-1) {
+						++cardCount;
 						syncThumbnail();
 					} else {
 						resolve();
@@ -56,9 +58,7 @@ new Promise((resolve, reject) => {
 				})
 				.catch((err) => {
 					reject(err);
-				});
-
-				cardCount++;				
+				});				
 			});	
 		}
 
