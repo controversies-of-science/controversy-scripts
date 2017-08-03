@@ -4,7 +4,9 @@
   "description": "Suite of tools to simplify management of backend API",
   "main": "index.js",
   "scripts": {
-    "scrape-gplus": "node src/js/scrape-gplus.js",
+    "scrape-gplus-data": "node src/js/scrape-gplus-data.js",
+    "scrape-gplus-directories": "node src/js/scrape-gplus-directories.js",
+    "scrape-gplus-images": "node src/js/scrape-gplus-images.js",
     "create-algolia-cards": "node src/js/create-algolia-cards.js",
     "create-algolia-feeds": "node src/js/create-algolia-feeds.js",
     "create-dynamo-cards": "node src/js/create-dynamo-cards.js",

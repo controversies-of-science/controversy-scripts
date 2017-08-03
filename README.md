@@ -36,9 +36,17 @@ Any changes made to the scripts need to be built with Babel before running:
 
 Plural scripts are seed scripts which operate on entire collections.  Any pre-existing data will be wiped out.  The singular versions are additive to what already exists (the atomic versions).
 
-### scrape-gplus (DONE)
+### scrape-gplus-directories (WIP)
 
-`npm run scrape-gplus` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.  Beware: It will completely wipe out whatever data is already in that `gplus-collection.json` file.  A more atomic version of this script will be created later.
+`npm run scrape-gplus-directories` - This script scaffolds out the controversy card directories based upon the structure of the Controversies of Science G+ collection.  Since the other scripts will assume these directories exist, this script should be run before any other card-based script.
+
+### scrape-gplus-data (DONE)
+
+`npm run scrape-gplus-data` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.  Beware: It will completely wipe out whatever data is already in that `gplus-collection.json` file.  A more atomic version of this script will be created later.
+
+### scrape-gplus-images (WIP)
+
+`npm run scrape-gplus-images` - This script saves to disk from the G+ collection all of the large-format controversy card images used in the collection.
 
 ### create-algolia-cards (DONE)
 
@@ -66,7 +74,7 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 
 `npm run create-card-thumbnails` - This generates card thumbnails based upon the contents of `img/cards`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
-### create-feed-thumbnails (WIP)
+### create-feed-thumbnails (DONE)
 
 `npm run create-feed-thumbnails` - This generates feed thumbnails based upon the contents of `img/feeds`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
