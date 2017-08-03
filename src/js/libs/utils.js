@@ -58,6 +58,8 @@ function splitText(slug, text, breakString) {
 	});
 }
 
+// Generate thumbnail.jpg from large.jpg for entire directory.  Width is set in
+// config.es
 function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise(function (resolve, reject) {
 		if (isAlreadyGenerated) {
@@ -68,10 +70,6 @@ function createThumbnail(input, output, isAlreadyGenerated) {
 
 			// null parameter sets height to auto
 			thumbnail.ensureThumbnail('large.jpg', _config.thumbnailSize, null, function (err, filename) {
-
-				console.log('input: ' + input);
-				console.log('output: ' + output);
-				console.log('filename: ' + filename);
 
 				if (err) {
 					reject(err);
