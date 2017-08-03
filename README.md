@@ -36,53 +36,73 @@ Any changes made to the scripts need to be built with Babel before running:
 
 Plural scripts are seed scripts which operate on entire collections.  Any pre-existing data will be wiped out.  The singular versions are additive to what already exists (the atomic versions).
 
-### scrape-gplus-directories (WIP)
+### G+ Collection Scrapers
 
-`npm run scrape-gplus-directories` - This script scaffolds out the controversy card directories based upon the structure of the Controversies of Science G+ collection.  Since the other scripts will assume these directories exist, this script should be run before any other card-based script.
+When starting from scratch, these are the first scripts which should be run.
 
-### scrape-gplus-data (DONE)
+#### scrape-gplus-directories (WIP)
+
+`npm run scrape-gplus-directories` - This script scaffolds out the controversy card directories based upon the structure of the Controversies of Science G+ collection.  **Since the other scripts will assume these directories exist, this script should be run before any other card-based script.**
+
+#### scrape-gplus-data (DONE)
 
 `npm run scrape-gplus-data` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.  Beware: It will completely wipe out whatever data is already in that `gplus-collection.json` file.  A more atomic version of this script will be created later.
 
-### scrape-gplus-images (WIP)
+#### scrape-gplus-images (WIP)
 
 `npm run scrape-gplus-images` - This script saves to disk from the G+ collection all of the large-format controversy card images used in the collection.
 
-### create-algolia-cards (DONE)
+### Algolia Search Result Generator Scripts
+
+These scripts assume that the G+ scraper script has already captured the G+ collection data.
+
+#### create-algolia-cards (DONE)
 
 `npm run create-algolia-cards` - This script generates the Algolia Search JSON for all controversy cards from scratch, based upon two inputs:
 
 - `/json/inputs/cards.json` - a hand-generated list of slugs and values for the cards
 - `/json/generated/gplus-collection.json` - the output of the `scrape-gplus` script
 
-### create-algolia-feeds (DONE)
+#### create-algolia-feeds (DONE)
 
 `npm run create-algolia-feeds` - Since Algolia Search must generate results for both cards and feeds, this script generates the Algolia feed JSON.  It combines two inputs:
 
 - `/json/inputs/feeds.json` - a hand-generated list of slugs and values for the feeds
 - `/md/feeds/` - This directory is scanned for subdirectories of the structure `/{controversy-slug}/{feed-slug}`, and the markup is processed for front matter and split by paragraphs, as required by Algolia Search.
 
-### create-dynamo-cards (WIP)
+### DynamoDB API Backend Seed Scripts
+
+These scripts assume that the G+ scraper script has already captured the G+ collection data.
+
+#### create-dynamo-cards (WIP)
 
 `npm run create-dynamo-cards` - This resets the controversy cards endpoint which is used by the `react-worldviewer-app` application.  Be aware that the cards are pushed into the backend one at a time.
 
-### create-dynamo-feeds (WIP)
+#### create-dynamo-feeds (WIP)
 
 `npm run create-dynamo-feeds` - This resets the controversy feeds endpoint which is used by the `react-worldviewer-app` application.  Be aware that the feeds are pushed into the backend one at a time.
 
-### create-card-thumbnails (DONE)
+### Thumbnail Generator Scripts
+
+These scripts assume that the large-format images already exist.
+
+#### create-card-thumbnails (DONE)
 
 `npm run create-card-thumbnails` - This generates card thumbnails based upon the contents of `img/cards`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
-### create-feed-thumbnails (DONE)
+#### create-feed-thumbnails (DONE)
 
 `npm run create-feed-thumbnails` - This generates feed thumbnails based upon the contents of `img/feeds`.  See `src/es6/libs/config.es` for the thumbnail width setting.  For the time being, we will manage the S3 bucket manually.
 
-### create-card-pyramids (LATER)
+### Openseadragon Image Pyramid Generator Scripts
+
+These scripts assume that the large-format images already exist.
+
+#### create-card-pyramids (LATER)
 
 `npm run create-card-pyramids` - This generates image pyramids based upon the contents of `img/cards`.  Be aware that this script can take a significant amount of time to complete.
 
-### create-feed-pyramids (LATER)
+#### create-feed-pyramids (LATER)
 
 `npm run create-feed-pyramids` - This generates image pyramids based upon the contents of `img/feeds`.  Be aware that this script can take a significant amount of time to complete.
 
