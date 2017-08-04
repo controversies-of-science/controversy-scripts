@@ -8,16 +8,6 @@ var _fs = require('fs');
 
 var _fs2 = _interopRequireDefault(_fs);
 
-var _request = require('request');
-
-var _request2 = _interopRequireDefault(_request);
-
-var _child_process = require('child_process');
-
-var _loadJsonFile = require('load-json-file');
-
-var _loadJsonFile2 = _interopRequireDefault(_loadJsonFile);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }

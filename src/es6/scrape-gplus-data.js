@@ -2,9 +2,6 @@ import { thumbnailSize, dir, url, input, output, stop } from './libs/config';
 import { createSlug, saveImage, splitText, createThumbnail, removeSystemFiles } from './libs/utils';
 
 import fs from 'fs';
-import request from 'request';
-import { execSync } from 'child_process';
-import loadJSONFile from 'load-json-file';
 
 const
 	GPlus = require('./libs/gplus').default;

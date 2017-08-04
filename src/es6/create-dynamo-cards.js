@@ -1,9 +1,14 @@
 import Cards from './libs/cards';
 import prompt from 'prompt';
 import colors from 'colors/safe';
+import loadJSONFile from 'load-json-file';
+import { output } from './libs/config';
+import { createSlug, splitText } from './libs/utils';
 
 let existingCardCollection = [],
-	cardsAPI;
+	cardsAPI,
+	jsonCardData,
+	controversies;
 
 async function clearCollection() {
 	cardsAPI = new Cards();
@@ -14,6 +19,7 @@ async function clearCollection() {
 	console.log('\nThe current set of cards is:')
 	console.log(existingCardCollection);
 
+	// Configuration for validation prompt
 	const schema = {
 		properties: {
 			confirmation: {
@@ -27,21 +33,53 @@ async function clearCollection() {
 
 	prompt.start();
 
-	prompt.get(schema, (err, result) => {
+	prompt.get(schema, async (err, result) => {
 		if (result.confirmation === 'y' ||
 			result.confirmation === 'yes') {
 
-			existingCardCollection.forEach(slug => {
+			for (let slug of existingCardCollection) {
 				console.log('\nDeleting controversy card ' + slug);
-				cardsAPI.deleteControversy(slug);
-			});
+				await cardsAPI.deleteControversy(slug);
+			}
+		} else {
+			return;
 		}
+	});
+
+	return;
+}
+
+async function getScrapedCollection() {
+	return await loadJSONFile(output.gplus);
+}
+
+async function putAllScrapedControversies(controversies) {
+	controversies.forEach(controversy => {
+		console.log(controversy);
+		console.log('');
 	});
 }
 
-try {
-	clearCollection();
+async function main() {
+	try {
+		await clearCollection();
+		jsonCardData = await getScrapedCollection();
+
+		controversies = jsonCardData.map(card => {
+			return {
+				slug: createSlug(card.name),
+				name: card.name,
+				summary: card.summary,
+				category: card.category,
+				text: splitText(card.text)
+			}
+		});
+
+		putAllScrapedControversies(controversies);
+	}
+	catch(e) {
+		console.log(e);
+	}	
 }
-catch(e) {
-	console.log(e);
-}
+
+main();
