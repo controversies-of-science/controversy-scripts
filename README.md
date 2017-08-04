@@ -50,9 +50,7 @@ When starting from scratch, these are the first scripts which should be run.
 
 #### scrape-gplus-images (DONE)
 
-`npm run scrape-gplus-images` - This script saves to disk from the G+ collection all of the large-format controversy card images used in the collection. **Note that there appears to be a problem with the G+ API insofar as many of the large-format images are actually just copies of their smaller thumbnail-like images. They somehow stored the wrong data, and that makes this script almost worthless.**
-
-This repo contains the correct large-format images, and will have to act as the ultimate source for truth on the large-format images.
+`npm run scrape-gplus-images` - This script saves to disk from the G+ collection all of the large-format controversy card images used in the collection. **Note that there appears to be a problem with the G+ API insofar as many of the large-format images are actually just copies of their smaller thumbnail-like images. They somehow stored the wrong data, and for this reason all of these images come from my own AWS S3 bucket.**
 
 ### Algolia Search Result Generator Scripts
 

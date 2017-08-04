@@ -18,20 +18,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 new Promise(function (resolve, reject) {
 	resolve((0, _loadJsonFile2.default)(_config.output.gplus));
 }).then(function (cards) {
-	console.log('\nSaving large-format controversy card images based upon the G+ Controversies of Science collection in ' + _config.dir.images.cards + '. Be aware that the G+ API does not always provide the correct URL for these large-format images.  I STRONGLY recommend that you check the dimensions for all of them once they are downloaded.');
+	console.log('\nSaving large-format controversy card images based upon the G+ Controversies of Science collection in ' + _config.dir.images.cards + '. Be aware that since the G+ API does not always provide the correct URL for these large-format images, I am instead pulling these from my own AWS S3 bucket.');
 
 	var promiseArray = cards.map(function (card) {
 		return new Promise(function (resolve, reject) {
 
 			var slug = (0, _utils.createSlug)(card.name),
-			    imageDirectory = _config.dir.images.cards + slug;
+			    imageDirectory = _config.dir.images.cards + slug,
+			    imageUrl = _config.url.cards + slug + '/large.jpg';
 
 			// Check if we have read/write access to the directory
 			_fs2.default.access(imageDirectory, _fs2.default.constants.R_OK | _fs2.default.constants.W_OK, function (access_err) {
 
 				// Slug-named directory does not exist
 				if (access_err) {
-					console.log('\nThe image directory ' + imageDirectory + ' does not exist. Please run the scrape-gplus-directories script first.\n');
+					console.log('The image directory ' + imageDirectory + ' does not exist. Please run the scrape-gplus-directories script first.');
 
 					reject();
 
@@ -39,7 +40,7 @@ new Promise(function (resolve, reject) {
 				} else {
 					console.log('Saving image for ' + imageDirectory);
 
-					(0, _utils.saveImage)(card.image, imageDirectory + '/large.jpg', resolve, reject);
+					(0, _utils.saveImage)(imageUrl, imageDirectory + '/large.jpg', resolve, reject);
 				}
 			});
 		});
