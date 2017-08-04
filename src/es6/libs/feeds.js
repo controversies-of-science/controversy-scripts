@@ -1,4 +1,5 @@
-import { invokeApig, url } from './api';
+import { invokeApig } from './api';
+import { api } from './config';
 
 export default class Feeds {
 	constructor() {
@@ -17,34 +18,34 @@ export default class Feeds {
 			images
 		};
 
-		return invokeApig(
-			url.api.feeds,
-			cardSlug,
-			'PUT',
+		return invokeApig({
+			base: api.feeds,
+			path: cardSlug,
+			method: 'PUT',
 			body
-		);
+		});
 	}
 
 	getFeed(cardSlug, feedSlug) {
-		return invokeApig(
-			url.api.feeds,
-			cardSlug + '/' + feedSlug
-		);
+		return invokeApig({
+			base: api.feeds,
+			path: cardSlug + '/' + feedSlug
+		});
 	}
 
 	getFeedSlugs(cardSlug) {
-		return invokeApig(
-			url.api.feeds,
-			cardSlug
-		);
+		return invokeApig({
+			base: api.feeds,
+			path: cardSlug
+		});
 	}
 
 	deleteFeed(cardSlug, feedSlug) {
-		return invokeApig(
-			url.api.feeds,
-			cardSlug + '/' + feedSlug,
-			'DELETE'
-		);
+		return invokeApig({
+			base: api.feeds,
+			path: cardSlug + '/' + feedSlug,
+			method: 'DELETE'
+		});
 	}
 
 	updateFeed(cardSlug, feedSlug, name, summary, category, text, posted, author, images) {
@@ -58,11 +59,11 @@ export default class Feeds {
 			images
 		};
 
-		return invokeApig(
-			url.api.feeds,
-			cardSlug + '/' + feedSlug,
-			'PUT',
+		return invokeApig({
+			base: api.feeds,
+			path: cardSlug + '/' + feedSlug,
+			method: 'PUT',
 			body
-		);
+		});
 	}
 };

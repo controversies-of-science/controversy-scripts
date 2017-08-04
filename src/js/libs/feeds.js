@@ -8,6 +8,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _api = require('./api');
 
+var _config = require('./config');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Feeds = function () {
@@ -29,22 +31,37 @@ var Feeds = function () {
 				images: images
 			};
 
-			return (0, _api.invokeApig)(_api.url.api.feeds, cardSlug, 'PUT', body);
+			return (0, _api.invokeApig)({
+				base: _config.api.feeds,
+				path: cardSlug,
+				method: 'PUT',
+				body: body
+			});
 		}
 	}, {
 		key: 'getFeed',
 		value: function getFeed(cardSlug, feedSlug) {
-			return (0, _api.invokeApig)(_api.url.api.feeds, cardSlug + '/' + feedSlug);
+			return (0, _api.invokeApig)({
+				base: _config.api.feeds,
+				path: cardSlug + '/' + feedSlug
+			});
 		}
 	}, {
 		key: 'getFeedSlugs',
 		value: function getFeedSlugs(cardSlug) {
-			return (0, _api.invokeApig)(_api.url.api.feeds, cardSlug);
+			return (0, _api.invokeApig)({
+				base: _config.api.feeds,
+				path: cardSlug
+			});
 		}
 	}, {
 		key: 'deleteFeed',
 		value: function deleteFeed(cardSlug, feedSlug) {
-			return (0, _api.invokeApig)(_api.url.api.feeds, cardSlug + '/' + feedSlug, 'DELETE');
+			return (0, _api.invokeApig)({
+				base: _config.api.feeds,
+				path: cardSlug + '/' + feedSlug,
+				method: 'DELETE'
+			});
 		}
 	}, {
 		key: 'updateFeed',
@@ -59,7 +76,12 @@ var Feeds = function () {
 				images: images
 			};
 
-			return (0, _api.invokeApig)(_api.url.api.feeds, cardSlug + '/' + feedSlug, 'PUT', body);
+			return (0, _api.invokeApig)({
+				base: _config.api.feeds,
+				path: cardSlug + '/' + feedSlug,
+				method: 'PUT',
+				body: body
+			});
 		}
 	}]);
 

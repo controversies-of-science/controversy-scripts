@@ -4,13 +4,24 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.invokeApig = invokeApig;
+
+var _nodeFetch = require('node-fetch');
+
+var _nodeFetch2 = _interopRequireDefault(_nodeFetch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // From http://serverless-stack.com/chapters/call-the-create-api.html
+// But, modified to use a Node version of fetch rather than the 
+// whatwg-fetch version.
 async function invokeApig(_ref, userToken) {
 	var base = _ref.base,
-	    path = _ref.path,
+	    _ref$path = _ref.path,
+	    path = _ref$path === undefined ? '' : _ref$path,
 	    _ref$method = _ref.method,
 	    method = _ref$method === undefined ? 'GET' : _ref$method,
-	    body = _ref.body;
+	    _ref$body = _ref.body,
+	    body = _ref$body === undefined ? {} : _ref$body;
 
 
 	var url = '' + base + path;
@@ -22,26 +33,9 @@ async function invokeApig(_ref, userToken) {
 
 	body = body ? JSON.stringify(body) : body;
 
-	var results = await fetch(url, {
-		method: method,
-		body: body,
-		headers: headers
+	return (0, _nodeFetch2.default)(url, { method: method, body: body, headers: headers }).then(function (res) {
+		return res.json();
+	}).then(function (json) {
+		return json;
 	});
-
-	if (results.status !== 200) {
-		throw new Error((await results.text()));
-	}
-
-	return results.json();
 }
-
-var url = exports.url = {
-	api: {
-		feeds: 'https://nz2t3hld20.execute-api.us-west-1.amazonaws.com/prod/feeds/',
-		cards: 'https://q9paj2zuf1.execute-api.us-west-1.amazonaws.com/prod/controversies/'
-	},
-	images: {
-		feeds: 'https://controversy-cards-feeds.s3.amazonaws.com/',
-		cards: 'https://controversy-cards-images.s3.amazonaws.com/'
-	}
-};

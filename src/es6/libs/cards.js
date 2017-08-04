@@ -1,4 +1,5 @@
-import { invokeApig, url } from './api';
+import { invokeApig } from './api';
+import { api } from './config';
 
 export default class Cards {
 	constructor() {
@@ -14,34 +15,32 @@ export default class Cards {
 			text
 		};
 
-		return invokeApig(
-			url.api.cards,
-			'', // root
-			'PUT',
+		return invokeApig({
+			base: api.cards,
+			method: 'PUT',
 			body
-		);
+		});
 	}
 
 	getControversy(slug) {
-		return invokeApig(
-			url.api.cards,
-			slug
-		);
+		return invokeApig({
+			base: api.cards,
+			path: slug
+		});
 	}
 
 	getControversySlugs() {
-		return invokeApig(
-			url.api.cards,
-			''
-		);
+		return invokeApig({
+			base: api.cards
+		});
 	}
 
 	deleteControversy(slug) {
-		return invokeApig(
-			url.api.cards,
-			slug,
-			'DELETE'
-		);
+		return invokeApig({
+			base: api.cards,
+			path: slug,
+			method: 'DELETE'
+		});
 	}
 
 	// TODO: Remove slug from body in API
@@ -53,11 +52,11 @@ export default class Cards {
 			text
 		};
 
-		return invokeApig(
-			url.api.cards,
-			slug,
-			'PUT',
+		return invokeApig({
+			base: api.cards,
+			path: slug,
+			method: 'PUT',
 			body
-		);
+		});
 	}
 };

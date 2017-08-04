@@ -1,9 +1,13 @@
+import fetch from 'node-fetch';
+
 // From http://serverless-stack.com/chapters/call-the-create-api.html
+// But, modified to use a Node version of fetch rather than the 
+// whatwg-fetch version.
 export async function invokeApig(
 	{ base,
-	  path,
+	  path = '',
 	  method = 'GET',
-	  body }, userToken) {
+	  body = {} }, userToken) {
 
 	const url = `${base}${path}`;
 
@@ -14,26 +18,11 @@ export async function invokeApig(
 
 	body = (body) ? JSON.stringify(body) : body;
 
-	const results = await fetch(url, {
-		method,
-		body,
-		headers
-	});
-
-	if (results.status !== 200) {
-		throw new Error(await results.text());
-	}
-
-	return results.json();
+	return fetch(url, { method, body, headers })
+		.then(res => {
+			return res.json();
+		})
+		.then(json => {
+			return json;
+		});
 }
-
-export const url = {
-	api: {
-		feeds: 'https://nz2t3hld20.execute-api.us-west-1.amazonaws.com/prod/feeds/',
-		cards: 'https://q9paj2zuf1.execute-api.us-west-1.amazonaws.com/prod/controversies/'
-	},
-	images: {
-		feeds: 'https://controversy-cards-feeds.s3.amazonaws.com/',
-		cards: 'https://controversy-cards-images.s3.amazonaws.com/'
-	}
-};

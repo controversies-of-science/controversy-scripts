@@ -8,6 +8,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _api = require('./api');
 
+var _config = require('./config');
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Cards = function () {
@@ -26,23 +28,35 @@ var Cards = function () {
 				text: text
 			};
 
-			return (0, _api.invokeApig)(_api.url.api.cards, '', // root
-			'PUT', body);
+			return (0, _api.invokeApig)({
+				base: _config.api.cards,
+				method: 'PUT',
+				body: body
+			});
 		}
 	}, {
 		key: 'getControversy',
 		value: function getControversy(slug) {
-			return (0, _api.invokeApig)(_api.url.api.cards, slug);
+			return (0, _api.invokeApig)({
+				base: _config.api.cards,
+				path: slug
+			});
 		}
 	}, {
 		key: 'getControversySlugs',
 		value: function getControversySlugs() {
-			return (0, _api.invokeApig)(_api.url.api.cards, '');
+			return (0, _api.invokeApig)({
+				base: _config.api.cards
+			});
 		}
 	}, {
 		key: 'deleteControversy',
 		value: function deleteControversy(slug) {
-			return (0, _api.invokeApig)(_api.url.api.cards, slug, 'DELETE');
+			return (0, _api.invokeApig)({
+				base: _config.api.cards,
+				path: slug,
+				method: 'DELETE'
+			});
 		}
 
 		// TODO: Remove slug from body in API
@@ -57,7 +71,12 @@ var Cards = function () {
 				text: text
 			};
 
-			return (0, _api.invokeApig)(_api.url.api.cards, slug, 'PUT', body);
+			return (0, _api.invokeApig)({
+				base: _config.api.cards,
+				path: slug,
+				method: 'PUT',
+				body: body
+			});
 		}
 	}]);
 
