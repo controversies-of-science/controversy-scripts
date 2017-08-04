@@ -27,21 +27,33 @@ var existingCardCollection = [],
     jsonCardData = void 0,
     controversies = void 0;
 
-async function clearCollection() {
-	cardsAPI = new _cards2.default();
+function fetchExistingCards() {
+	return new Promise(function (resolve, reject) {
+		cardsAPI = new _cards2.default();
 
-	console.log('Fetching the existing collection of cards ...');
-	existingCardCollection = await cardsAPI.getControversySlugs();
+		console.log('Fetching the existing collection of cards ...');
+		resolve(cardsAPI.getControversySlugs());
+	});
+}
 
-	console.log('\nThe current set of cards is:');
-	console.log(existingCardCollection);
+function deleteExistingCards() {
+	var promiseArray = existingCardCollection.map(function (slug) {
+		return new Promise(function (resolve, reject) {
+			console.log('Deleting controversy card ' + slug);
+			resolve(cardsAPI.deleteControversy(slug));
+		});
+	});
 
+	return Promise.all(promiseArray);
+}
+
+function confirmCardDeletion() {
 	// Configuration for validation prompt
 	var schema = {
 		properties: {
 			confirmation: {
 				pattern: /^(y|n|yes|no)$/,
-				description: _safe2.default.red.bold('Are you sure you want to delete the existing collection of controversy cards?'),
+				description: _safe2.default.red.bold('Do you want to delete the existing collection of controversy cards at the cards API endpoint?'),
 				message: _safe2.default.white('(y)es or (n)o'),
 				required: true
 			}
@@ -50,72 +62,70 @@ async function clearCollection() {
 
 	_prompt2.default.start();
 
-	_prompt2.default.get(schema, async function (err, result) {
-		if (result.confirmation === 'y' || result.confirmation === 'yes') {
-			var _iteratorNormalCompletion = true;
-			var _didIteratorError = false;
-			var _iteratorError = undefined;
+	// If there is no promise here, the script will continue before
+	// getting the answer
+	return new Promise(function (resolve, reject) {
+		_prompt2.default.get(schema, function (err, result) {
+			if (result.confirmation === 'y' || result.confirmation === 'yes') {
 
-			try {
-
-				for (var _iterator = existingCardCollection[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-					var slug = _step.value;
-
-					console.log('\nDeleting controversy card ' + slug);
-					await cardsAPI.deleteControversy(slug);
-				}
-			} catch (err) {
-				_didIteratorError = true;
-				_iteratorError = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion && _iterator.return) {
-						_iterator.return();
-					}
-				} finally {
-					if (_didIteratorError) {
-						throw _iteratorError;
-					}
-				}
+				resolve(deleteExistingCards());
+			} else {
+				resolve();
 			}
-		} else {
-			return;
-		}
+		});
 	});
-
-	return;
 }
 
-async function getScrapedCollection() {
-	return await (0, _loadJsonFile2.default)(_config.output.gplus);
+function getScrapedCollection() {
+	return new Promise(function (resolve, reject) {
+		resolve((0, _loadJsonFile2.default)(_config.output.gplus));
+	});
 }
 
-async function putAllScrapedControversies(controversies) {
+function putAllScrapedControversies(controversies) {
 	controversies.forEach(function (controversy) {
 		console.log(controversy);
 		console.log('');
 	});
 }
 
-async function main() {
-	try {
-		await clearCollection();
-		jsonCardData = await getScrapedCollection();
+fetchExistingCards().then(function (slugs) {
+	console.log('\nThe current set of cards in the API is:\n');
+	console.log(slugs);
 
-		controversies = jsonCardData.map(function (card) {
-			return {
-				slug: (0, _utils.createSlug)(card.name),
-				name: card.name,
-				summary: card.summary,
-				category: card.category,
-				text: (0, _utils.splitText)(card.text)
-			};
-		});
+	existingCardCollection = slugs;
 
-		putAllScrapedControversies(controversies);
-	} catch (e) {
-		console.log(e);
+	if (existingCardCollection.length > 0) {
+		return confirmCardDeletion();
+	} else {
+		return;
 	}
-}
+}).then(function () {
+	console.log('\nNow fetching the G+ collection data from local JSON file ...');
 
-main();
+	return getScrapedCollection();
+}).then(function (data) {
+	jsonCardData = data;
+
+	console.log('\nThere are ' + jsonCardData.length + ' cards in the JSON file. Now constructing our API objects ...');
+
+	controversies = jsonCardData.map(function (card) {
+		var slug = (0, _utils.createSlug)(card.name);
+
+		return {
+			slug: slug,
+			name: card.name,
+			summary: card.summary,
+			category: card.category,
+			text: (0, _utils.splitText)(slug, card.text, _config.stop.cards)
+		};
+	});
+
+	putAllScrapedControversies(controversies);
+}).catch(function (error) {
+	console.log("\nAn error has occurred ...");
+
+	if (error) {
+		console.log(error);
+	}
+});
