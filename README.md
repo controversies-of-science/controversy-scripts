@@ -40,7 +40,7 @@ Plural scripts are seed scripts which operate on entire collections.  Any pre-ex
 
 When starting from scratch, these are the first scripts which should be run.
 
-#### scrape-gplus-directories (WIP)
+#### scrape-gplus-directories (DONE)
 
 `npm run scrape-gplus-directories` - This script scaffolds out the controversy card directories based upon the structure of the Controversies of Science G+ collection.  **Since the other scripts will assume these directories exist, this script should be run before any other card-based script.**
 
@@ -48,9 +48,11 @@ When starting from scratch, these are the first scripts which should be run.
 
 `npm run scrape-gplus-data` - This script transforms the Controversies of Science G+ collection online into a JSON file located at `/json/generated/gplus-collection.json`.  Beware: It will completely wipe out whatever data is already in that `gplus-collection.json` file.  A more atomic version of this script will be created later.
 
-#### scrape-gplus-images (WIP)
+#### scrape-gplus-images (DONE)
 
-`npm run scrape-gplus-images` - This script saves to disk from the G+ collection all of the large-format controversy card images used in the collection.
+`npm run scrape-gplus-images` - This script saves to disk from the G+ collection all of the large-format controversy card images used in the collection. **Note that there appears to be a problem with the G+ API insofar as many of the large-format images are actually just copies of their smaller thumbnail-like images. They somehow stored the wrong data, and that makes this script almost worthless.**
+
+This repo contains the correct large-format images, and will have to act as the ultimate source for truth on the large-format images.
 
 ### Algolia Search Result Generator Scripts
 

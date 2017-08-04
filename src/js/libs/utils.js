@@ -21,6 +21,10 @@ var _slugify = require('slugify');
 
 var _slugify2 = _interopRequireDefault(_slugify);
 
+var _request = require('request');
+
+var _request2 = _interopRequireDefault(_request);
+
 var _config = require('./config');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -36,7 +40,7 @@ function createSlug(cardName) {
 
 // Captures image from URL to local disk
 function saveImage(url, destination, resolve, reject) {
-	request.get({ url: url, encoding: 'binary' }, function (err, response, body) {
+	_request2.default.get({ url: url, encoding: 'binary' }, function (err, response, body) {
 		_fs2.default.writeFile(destination, body, 'binary', function (err) {
 			if (err) {
 				reject(err);

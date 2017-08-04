@@ -1,6 +1,7 @@
 import fs from 'fs';
 import Thumbnail from 'thumbnail';
 import slugify from 'slugify';
+import request from 'request';
 import { thumbnailSize } from './config';
 
 // Slugify controversy card titles, lower the casing, then remove periods and apostrophes
