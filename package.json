@@ -28,12 +28,14 @@
   },
   "homepage": "https://github.com/controversies-of-science/controversy-scripts#readme",
   "dependencies": {
+    "colors": "^1.1.2",
     "front-matter": "^2.1.2",
     "he": "^1.1.1",
     "load-json-file": "^2.0.0",
     "mongodb": "^2.2.24",
     "node-fetch": "^1.7.1",
     "pagedown": "^1.1.0",
+    "prompt": "^1.0.0",
     "request": "^2.79.0",
     "slugify": "^1.1.0",
     "thumbnail": "^0.1.9"
