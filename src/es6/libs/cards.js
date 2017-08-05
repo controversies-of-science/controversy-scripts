@@ -6,13 +6,18 @@ export default class Cards {
 
 	}
 
-	createControversy(slug, name, summary, category, text) {
+	createControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 		const body = {
 			slug,
-			name,
-			summary,
-			category,
-			text
+			cardName,
+			cardSummary,
+			cardCategory,
+			text,
+			cardAuthor,
+			gplusUrl,
+			publishDate,
+			updateDate,
+			images
 		};
 
 		return invokeApig({
@@ -44,12 +49,17 @@ export default class Cards {
 	}
 
 	// TODO: Remove slug from body in API
-	updateControversy(slug, name, summary, category, text) {
+	updateControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 		const body = {
-			name,
-			summary,
-			category,
-			text
+			cardName,
+			cardSummary,
+			cardCategory,
+			text,
+			cardAuthor,
+			gplusUrl,
+			publishDate,
+			updateDate,
+			images
 		};
 
 		return invokeApig({

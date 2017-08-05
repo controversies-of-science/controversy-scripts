@@ -32,7 +32,7 @@ export const
 
 	api = {
 		feeds: 'https://nz2t3hld20.execute-api.us-west-1.amazonaws.com/prod/feeds/',
-		cards: 'https://q9paj2zuf1.execute-api.us-west-1.amazonaws.com/prod/controversies/'
+		cards: 'https://1xh0wwfkjf.execute-api.us-west-1.amazonaws.com/prod/controversies/'
 	},
 
 	// Hard-coded JSON data input
