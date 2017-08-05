@@ -2,12 +2,13 @@ import Cards from './libs/cards';
 import prompt from 'prompt';
 import colors from 'colors/safe';
 import loadJSONFile from 'load-json-file';
-import { output, stop, api } from './libs/config';
+import { input, output, stop, api } from './libs/config';
 import { createSlug, splitText } from './libs/utils';
 
 let existingCardCollection = [],
 	cardsAPI,
-	jsonCardData,
+	gplusCardJSON,
+	localCardJSON,
 	controversies;
 
 function fetchExistingCards() {
@@ -20,6 +21,8 @@ function fetchExistingCards() {
 }
 
 function deleteExistingCards() {
+	console.log('');
+
 	let promiseArray = existingCardCollection.map(slug => {
 		return new Promise((resolve, reject) => {
 			console.log('Deleting controversy card ' + slug);
@@ -48,6 +51,8 @@ function confirmCardDeletion() {
 	// If there is no promise here, the script will continue before
 	// getting the answer
 	return new Promise((resolve, reject) => {
+		console.log('');
+
 		prompt.get(schema, (err, result) => {
 			if (result.confirmation === 'y' ||
 				result.confirmation === 'yes') {
@@ -66,18 +71,29 @@ function getScrapedCollection() {
 	});
 }
 
+function getLocalCardJSON() {
+	return new Promise((resolve, reject) => {
+		resolve(loadJSONFile(input.cards));
+	});
+}
+
 // I'm using a recursive promise chain because I would prefer that
 // these happen in a predictable order.
-function putAllScrapedControversies(controversies) {
+function postAllScrapedControversies(controversies) {
+	console.log('\nNow saving controversy cards to cards API ...\n');
+
 	new Promise((resolve, reject) => {
 		let putControversy = function(count) {
-			const card = controversies[count];
+			const
+				card = controversies[count],
+				slug = createSlug(card.cardName);
 
-			console.log('Saving controversy card ' + card.cardName + ' to card API.');
+			console.log(count + ': Saving controversy card to card API: ' + card.cardName);
 
 			// TODO: Add error state
 			cardsAPI.createControversy(
-				card.slug,
+				slug,
+				card.shortSlug,
 				card.cardName,
 				card.cardSummary,
 				card.cardCategory,
@@ -86,23 +102,22 @@ function putAllScrapedControversies(controversies) {
 				card.gplusUrl,
 				card.publishDate,
 				card.updateDate,
-				card.images
-			).then(data => {
-				console.log(data);
+				card.images)
 
-				const next = ++count;
+				.then(data => {
+					const next = ++count;
 
-				if (next >= controversies.length) {
-					resolve();
-				} else {
-					putControversy(next);
-				}
-			}).catch(data => {
-				console.log('ERROR:');
-				console.log(data);
+					if (next >= controversies.length) {
+						resolve();
+					} else {
+						putControversy(next);
+					}
+				}).catch(data => {
+					console.log('ERROR:');
+					console.log(data);
 
-				reject();
-			});
+					reject();
+				});
 		}
 
 		putControversy(0);
@@ -125,33 +140,57 @@ fetchExistingCards()
 })
 
 .then(() => {
+	console.log('\nNow fetching the local hardcoded data that will be mixed into the G+ collection data ...');
+
+	return getLocalCardJSON();
+})
+
+.then((data) => {
+	const localCardHash = {};
+
+	// Create a hash map for easier referencing
+	for (let card of data) {
+		localCardHash[card.slug] = {
+			shortSlug: card['short-slug'],
+			images: card['images']
+		}
+	}
+
+	localCardJSON = localCardHash;
+
 	console.log('\nNow fetching the G+ collection data from local JSON file ...');
 
 	return getScrapedCollection();
 })
 
-.then(data => {
-	jsonCardData = data;
+.then(async data => {
+	gplusCardJSON = data;
 
-	console.log('\nThere are ' + jsonCardData.length + ' cards in the JSON file. Now constructing our API objects ...');
+	console.log('\nThere are ' + gplusCardJSON.length + ' cards in the JSON file. Now constructing our API objects ...');
 
-	controversies = jsonCardData.map(card => {
+	controversies = gplusCardJSON.map(card => {
 		const slug = createSlug(card.name);
 
 		return {
 			slug,
-			name: card.name,
-			summary: card.summary,
-			category: card.category,
-			text: splitText(slug, card.text, stop.cards)
+			shortSlug: localCardJSON[slug].shortSlug,
+			cardName: card.name,
+			cardSummary: card.summary,
+			cardCategory: card.category,
+			text: splitText(slug, card.text, stop.cards),
+			cardAuthor: 'Chris Reeve',
+			gplusUrl: card.url,
+			publishDate: card.publishDate,
+			updateDate: card.updateDate,
+			images: localCardJSON[slug].images
 		}
 	});
 
-	putAllScrapedControversies(controversies);
+	return controversies;
 })
 
-.then(() => {
-	console.log('\ndone.');
+.then((controversies) => {
+	postAllScrapedControversies(controversies);
 })
 
 .catch(error => {

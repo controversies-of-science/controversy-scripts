@@ -19,9 +19,10 @@ var Cards = function () {
 
 	_createClass(Cards, [{
 		key: 'createControversy',
-		value: function createControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
+		value: function createControversy(slug, shortSlug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 			var body = {
 				slug: slug,
+				shortSlug: shortSlug,
 				cardName: cardName,
 				cardSummary: cardSummary,
 				cardCategory: cardCategory,
@@ -35,7 +36,7 @@ var Cards = function () {
 
 			return (0, _api.invokeApig)({
 				base: _config.api.cards,
-				method: 'PUT',
+				method: 'POST',
 				body: body
 			});
 		}
@@ -68,8 +69,9 @@ var Cards = function () {
 
 	}, {
 		key: 'updateControversy',
-		value: function updateControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
+		value: function updateControversy(slug, shortSlug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 			var body = {
+				shortSlug: shortSlug,
 				cardName: cardName,
 				cardSummary: cardSummary,
 				cardCategory: cardCategory,

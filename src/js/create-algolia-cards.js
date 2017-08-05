@@ -66,7 +66,8 @@ new Promise(function (resolve, reject) {
 			// This is the redundant part
 			algoliaMetadata = {
 				slug: json.slug,
-				gplusUrl: gplusCard.url, // Image or Card link?
+				shortSlug: json.shortSlug,
+				gplusUrl: gplusCard.url,
 				publishDate: gplusCard.publishDate,
 				updateDate: gplusCard.updateDate,
 				projectUrl: '', // What is this?!

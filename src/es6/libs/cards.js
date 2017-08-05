@@ -6,9 +6,10 @@ export default class Cards {
 
 	}
 
-	createControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
+	createControversy(slug, shortSlug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 		const body = {
 			slug,
+			shortSlug,
 			cardName,
 			cardSummary,
 			cardCategory,
@@ -22,7 +23,7 @@ export default class Cards {
 
 		return invokeApig({
 			base: api.cards,
-			method: 'PUT',
+			method: 'POST',
 			body
 		});
 	}
@@ -49,8 +50,9 @@ export default class Cards {
 	}
 
 	// TODO: Remove slug from body in API
-	updateControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
+	updateControversy(slug, shortSlug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 		const body = {
+			shortSlug,
 			cardName,
 			cardSummary,
 			cardCategory,

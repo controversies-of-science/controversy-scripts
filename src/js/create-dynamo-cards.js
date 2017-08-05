@@ -24,7 +24,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var existingCardCollection = [],
     cardsAPI = void 0,
-    jsonCardData = void 0,
+    gplusCardJSON = void 0,
+    localCardJSON = void 0,
     controversies = void 0;
 
 function fetchExistingCards() {
@@ -37,6 +38,8 @@ function fetchExistingCards() {
 }
 
 function deleteExistingCards() {
+	console.log('');
+
 	var promiseArray = existingCardCollection.map(function (slug) {
 		return new Promise(function (resolve, reject) {
 			console.log('Deleting controversy card ' + slug);
@@ -65,6 +68,8 @@ function confirmCardDeletion() {
 	// If there is no promise here, the script will continue before
 	// getting the answer
 	return new Promise(function (resolve, reject) {
+		console.log('');
+
 		_prompt2.default.get(schema, function (err, result) {
 			if (result.confirmation === 'y' || result.confirmation === 'yes') {
 
@@ -82,19 +87,26 @@ function getScrapedCollection() {
 	});
 }
 
+function getLocalCardJSON() {
+	return new Promise(function (resolve, reject) {
+		resolve((0, _loadJsonFile2.default)(_config.input.cards));
+	});
+}
+
 // I'm using a recursive promise chain because I would prefer that
 // these happen in a predictable order.
-function putAllScrapedControversies(controversies) {
+function postAllScrapedControversies(controversies) {
+	console.log('\nNow saving controversy cards to cards API ...\n');
+
 	new Promise(function (resolve, reject) {
 		var putControversy = function putControversy(count) {
-			var card = controversies[count];
+			var card = controversies[count],
+			    slug = (0, _utils.createSlug)(card.cardName);
 
-			console.log('Saving controversy card ' + card.cardName + ' to card API.');
+			console.log(count + ': Saving controversy card to card API: ' + card.cardName);
 
 			// TODO: Add error state
-			cardsAPI.createControversy(card.slug, card.cardName, card.cardSummary, card.cardCategory, card.text, card.cardAuthor, card.gplusUrl, card.publishDate, card.updateDate, card.images).then(function (data) {
-				console.log(data);
-
+			cardsAPI.createControversy(slug, card.shortSlug, card.cardName, card.cardSummary, card.cardCategory, card.text, card.cardAuthor, card.gplusUrl, card.publishDate, card.updateDate, card.images).then(function (data) {
 				var next = ++count;
 
 				if (next >= controversies.length) {
@@ -126,29 +138,72 @@ fetchExistingCards().then(function (slugs) {
 		return;
 	}
 }).then(function () {
+	console.log('\nNow fetching the local hardcoded data that will be mixed into the G+ collection data ...');
+
+	return getLocalCardJSON();
+}).then(function (data) {
+	var localCardHash = {};
+
+	// Create a hash map for easier referencing
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var card = _step.value;
+
+			localCardHash[card.slug] = {
+				shortSlug: card['short-slug'],
+				images: card['images']
+			};
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+
+	localCardJSON = localCardHash;
+
 	console.log('\nNow fetching the G+ collection data from local JSON file ...');
 
 	return getScrapedCollection();
-}).then(function (data) {
-	jsonCardData = data;
+}).then(async function (data) {
+	gplusCardJSON = data;
 
-	console.log('\nThere are ' + jsonCardData.length + ' cards in the JSON file. Now constructing our API objects ...');
+	console.log('\nThere are ' + gplusCardJSON.length + ' cards in the JSON file. Now constructing our API objects ...');
 
-	controversies = jsonCardData.map(function (card) {
+	controversies = gplusCardJSON.map(function (card) {
 		var slug = (0, _utils.createSlug)(card.name);
 
 		return {
 			slug: slug,
-			name: card.name,
-			summary: card.summary,
-			category: card.category,
-			text: (0, _utils.splitText)(slug, card.text, _config.stop.cards)
+			shortSlug: localCardJSON[slug].shortSlug,
+			cardName: card.name,
+			cardSummary: card.summary,
+			cardCategory: card.category,
+			text: (0, _utils.splitText)(slug, card.text, _config.stop.cards),
+			cardAuthor: 'Chris Reeve',
+			gplusUrl: card.url,
+			publishDate: card.publishDate,
+			updateDate: card.updateDate,
+			images: localCardJSON[slug].images
 		};
 	});
 
-	putAllScrapedControversies(controversies);
-}).then(function () {
-	console.log('\ndone.');
+	return controversies;
+}).then(function (controversies) {
+	postAllScrapedControversies(controversies);
 }).catch(function (error) {
 	console.log("\nAn error has occurred ...");
 
