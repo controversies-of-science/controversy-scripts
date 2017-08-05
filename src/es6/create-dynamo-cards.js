@@ -66,8 +66,47 @@ function getScrapedCollection() {
 	});
 }
 
+// I'm using a recursive promise chain because I would prefer that
+// these happen in a predictable order.
 function putAllScrapedControversies(controversies) {
+	new Promise((resolve, reject) => {
+		let putControversy = function(count) {
+			const card = controversies[count];
 
+			console.log('Saving controversy card ' + card.cardName + ' to card API.');
+
+			// TODO: Add error state
+			cardsAPI.createControversy(
+				card.slug,
+				card.cardName,
+				card.cardSummary,
+				card.cardCategory,
+				card.text,
+				card.cardAuthor,
+				card.gplusUrl,
+				card.publishDate,
+				card.updateDate,
+				card.images
+			).then(data => {
+				console.log(data);
+
+				const next = ++count;
+
+				if (next >= controversies.length) {
+					resolve();
+				} else {
+					putControversy(next);
+				}
+			}).catch(data => {
+				console.log('ERROR:');
+				console.log(data);
+
+				reject();
+			});
+		}
+
+		putControversy(0);
+	});
 }
 
 fetchExistingCards()
@@ -109,6 +148,10 @@ fetchExistingCards()
 	});
 
 	putAllScrapedControversies(controversies);
+})
+
+.then(() => {
+	console.log('\ndone.');
 })
 
 .catch(error => {

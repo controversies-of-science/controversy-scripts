@@ -19,13 +19,18 @@ var Cards = function () {
 
 	_createClass(Cards, [{
 		key: 'createControversy',
-		value: function createControversy(slug, name, summary, category, text) {
+		value: function createControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 			var body = {
 				slug: slug,
-				name: name,
-				summary: summary,
-				category: category,
-				text: text
+				cardName: cardName,
+				cardSummary: cardSummary,
+				cardCategory: cardCategory,
+				text: text,
+				cardAuthor: cardAuthor,
+				gplusUrl: gplusUrl,
+				publishDate: publishDate,
+				updateDate: updateDate,
+				images: images
 			};
 
 			return (0, _api.invokeApig)({
@@ -63,12 +68,17 @@ var Cards = function () {
 
 	}, {
 		key: 'updateControversy',
-		value: function updateControversy(slug, name, summary, category, text) {
+		value: function updateControversy(slug, cardName, cardSummary, cardCategory, text, cardAuthor, gplusUrl, publishDate, updateDate, images) {
 			var body = {
-				name: name,
-				summary: summary,
-				category: category,
-				text: text
+				cardName: cardName,
+				cardSummary: cardSummary,
+				cardCategory: cardCategory,
+				text: text,
+				cardAuthor: cardAuthor,
+				gplusUrl: gplusUrl,
+				publishDate: publishDate,
+				updateDate: updateDate,
+				images: images
 			};
 
 			return (0, _api.invokeApig)({
