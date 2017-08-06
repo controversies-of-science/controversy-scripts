@@ -6,22 +6,23 @@ export default class Feeds {
 
 	}
 
-	createFeed(cardSlug, feedSlug, name, summary, category, text, posted, author, images) {
+	createFeed(cardSlug, feedSlug, feedName, feedCategories, text, feedAuthors, images, discourseLevel, publishDate, updateDate) {
 		const body = {
 			feedSlug,
-			name,
-			summary,
-			category,
+			feedName,
+			feedCategories,
 			text,
-			posted,
-			author,
-			images
+			feedAuthors,
+			images,
+			discourseLevel,
+			publishDate,
+			updateDate
 		};
 
 		return invokeApig({
 			base: api.feeds,
 			path: cardSlug,
-			method: 'PUT',
+			method: 'POST',
 			body
 		});
 	}
@@ -48,15 +49,16 @@ export default class Feeds {
 		});
 	}
 
-	updateFeed(cardSlug, feedSlug, name, summary, category, text, posted, author, images) {
+	updateFeed(cardSlug, feedSlug, feedName, feedCategories, text, feedAuthors, images, discourseLevel, publishDate, updateDate) {
 		const body = {
-			name,
-			summary,
-			category,
+			feedName,
+			feedCategories,
 			text,
-			posted,
-			author,
-			images
+			feedAuthors,
+			images,
+			discourseLevel,
+			publishDate,
+			updateDate
 		};
 
 		return invokeApig({

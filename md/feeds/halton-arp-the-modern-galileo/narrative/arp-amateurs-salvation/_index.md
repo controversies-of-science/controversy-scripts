@@ -1,5 +1,6 @@
 ---
 title: "Halton Arp in 1998 - The Reformation of Astronomy Will Come From Outsiders and Non-Professionals"
+controversy: "Halton Arp, the Modern Galileo"
 discourse_level: "narrative"
 authors: ["worldviewer"]
 date: "2017-04-30"

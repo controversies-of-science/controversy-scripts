@@ -1,5 +1,6 @@
 ---
 title: "Are We Wasting the Public's Money on Scientists Who Already Believe they Know All the Important Answers?"
+controversy: "Halton Arp, the Modern Galileo"
 discourse_level: "narrative"
 authors: ["worldviewer"]
 date: "2017-04-30"

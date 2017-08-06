@@ -24,7 +24,7 @@ url = exports.url = {
 	cards: 'https://controversy-cards-images.s3.amazonaws.com/'
 },
     api = exports.api = {
-	feeds: 'https://nz2t3hld20.execute-api.us-west-1.amazonaws.com/prod/feeds/',
+	feeds: 'https://wu7nsd6i3a.execute-api.us-west-1.amazonaws.com/prod/feeds/',
 	cards: 'https://1xh0wwfkjf.execute-api.us-west-1.amazonaws.com/prod/controversies/'
 },
 

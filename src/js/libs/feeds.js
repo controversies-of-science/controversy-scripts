@@ -19,22 +19,23 @@ var Feeds = function () {
 
 	_createClass(Feeds, [{
 		key: 'createFeed',
-		value: function createFeed(cardSlug, feedSlug, name, summary, category, text, posted, author, images) {
+		value: function createFeed(cardSlug, feedSlug, feedName, feedCategories, text, feedAuthors, images, discourseLevel, publishDate, updateDate) {
 			var body = {
 				feedSlug: feedSlug,
-				name: name,
-				summary: summary,
-				category: category,
+				feedName: feedName,
+				feedCategories: feedCategories,
 				text: text,
-				posted: posted,
-				author: author,
-				images: images
+				feedAuthors: feedAuthors,
+				images: images,
+				discourseLevel: discourseLevel,
+				publishDate: publishDate,
+				updateDate: updateDate
 			};
 
 			return (0, _api.invokeApig)({
 				base: _config.api.feeds,
 				path: cardSlug,
-				method: 'PUT',
+				method: 'POST',
 				body: body
 			});
 		}
@@ -65,15 +66,16 @@ var Feeds = function () {
 		}
 	}, {
 		key: 'updateFeed',
-		value: function updateFeed(cardSlug, feedSlug, name, summary, category, text, posted, author, images) {
+		value: function updateFeed(cardSlug, feedSlug, feedName, feedCategories, text, feedAuthors, images, discourseLevel, publishDate, updateDate) {
 			var body = {
-				name: name,
-				summary: summary,
-				category: category,
+				feedName: feedName,
+				feedCategories: feedCategories,
 				text: text,
-				posted: posted,
-				author: author,
-				images: images
+				feedAuthors: feedAuthors,
+				images: images,
+				discourseLevel: discourseLevel,
+				publishDate: publishDate,
+				updateDate: updateDate
 			};
 
 			return (0, _api.invokeApig)({

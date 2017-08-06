@@ -1,5 +1,6 @@
 ---
 title: "William C Mitchell Explains Redshift"
+controversy: "Halton Arp, the Modern Galileo"
 discourse_level: "conceptual"
 authors: ["worldviewer"]
 date: "2017-04-30"
