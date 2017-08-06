@@ -90,7 +90,7 @@ When starting from scratch, these are the first scripts which should be run.
 
 These scripts assume that the G+ scraper script has already captured the G+ collection data, and they are currently pointed at CloudFront edges.
 
-Once the new JSON is generated, go to the Algolia index, click "Manage Current Index", "Copy Settings" to a new index, then add **both** the `json/generated/algolia-cards.json` and `json/generated/algolia-feeds.json` files to the same new index.  Once the name of that index has changed in the frontend app, then the old index can then be deleted on Algolia.
+Once the new JSON is generated, go to the Algolia index, click "Manage Current Index", "Clear", then add **both** the `json/generated/algolia-cards.json` and `json/generated/algolia-feeds.json` files to the same new index.
 
 #### create-algolia-cards (DONE)
 
@@ -166,6 +166,11 @@ These two scripts upload **all** images associated with **all** cards and feeds.
 #### deploy-feed-thumbnails (DONE)
 
 **These two commands exhibit a strange one-off error: No matter what I do to give the AWS credentials the time they need, the first transfer always fails.**  I've not been able to figure out why so far.
+
+#### postdeploy-card-images (DONE)
+#### postdeploy-feed-images (DONE)
+
+These invalidate the CloudFront caches to speed up propagation.
 
 As needs arise, I'll fill out the other upload scripts.
 
