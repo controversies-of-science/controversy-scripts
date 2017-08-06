@@ -158,8 +158,8 @@ These scripts assume that the large-format images already exist.
 
 **These commands exist, but have yet to be tested**.  I'm going to wait until after the conference to test them, because these are huge uploads and I believe that everything -- except the thumbnails (the smallest part) -- are done.  I'll just use FTP to do that.
 
-### deploy-card-thumbnails (DONE)
-### deploy-feed-thumbnails (DONE)
+#### deploy-card-thumbnails (DONE)
+#### deploy-feed-thumbnails (DONE)
 
 **These two commands exhibit a strange one-off error: No matter what I do to give the AWS credentials the time they need, the first transfer always fails.**  I've not been able to figure out why so far.
 
