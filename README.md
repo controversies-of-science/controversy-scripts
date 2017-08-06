@@ -153,6 +153,8 @@ These scripts assume that the large-format images already exist.
     "deploy-feed-images": "aws s3 sync img/feeds/ s3://controversy-card-feeds",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id E17HLY6C4048N2 --paths '/*'",
 
+These two scripts upload **all** images associated with **all** cards and feeds.  Since this is a very large amount of data, it's generally recommended to upload images by category.
+
 #### deploy-card-images (DONE)
 #### deploy-feed-images (DONE)
 
@@ -162,6 +164,8 @@ These scripts assume that the large-format images already exist.
 #### deploy-feed-thumbnails (DONE)
 
 **These two commands exhibit a strange one-off error: No matter what I do to give the AWS credentials the time they need, the first transfer always fails.**  I've not been able to figure out why so far.
+
+As needs arise, I'll fill out the other upload scripts.
 
 ## TODO
 
