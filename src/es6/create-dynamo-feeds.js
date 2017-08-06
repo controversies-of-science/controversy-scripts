@@ -249,7 +249,6 @@ function postAllScrapedFeeds(feeds) {
 			console.log(count + ': Saving controversy card feed for ' +
 				feed.cardSlug + ' to feed API: ' + feed.feedName);
 
-			// TODO: Add error state
 			feedsAPI.createFeed(
 				localFeedHash[slug]['cardSlug'],
 				slug,

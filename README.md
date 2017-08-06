@@ -80,9 +80,11 @@ These scripts assume that the G+ scraper script has already captured the G+ coll
 
 This script creates significant load on the dynamoDB backend when there is more than just a few items to post, and it is advisable to set the read and write capacity units to at least 25 and 50, accordingly (with auto-scaling set to 50).
 
-#### create-dynamo-feeds (WIP)
+#### create-dynamo-feeds (DONE)
 
 `npm run create-dynamo-feeds` - This resets the controversy feeds endpoint which is used by the `react-worldviewer-app` application.  Be aware that the feeds are pushed into the backend one at a time.
+
+I really don't know if these categories inside of the feeds markdown front matter will be of any real use; it could be more hassle than anything.
 
 ### Thumbnail Generator Scripts
 
