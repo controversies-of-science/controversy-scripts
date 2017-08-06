@@ -25,20 +25,11 @@ function fetchFeedThumbnailList() {
 					reject(err);
 				}
 
-				console.log('count: ' + count);
-				console.log('dir.images.feeds[count]: ' + _config.dir.images.feeds[count]);
-				console.log('files:');
-				console.log(files);
-				console.log('');
-
 				if (count < _config.dir.images.feeds.length - 1) {
 					var fileList = (0, _utils.removeSystemFiles)(files),
 					    fullPathFileList = fileList.map(function (slug) {
 						return _config.dir.images.feeds[count] + slug;
 					});
-
-					console.log('fullPathFileList: ');
-					console.log(fullPathFileList);
 
 					feedThumbnailList.push.apply(feedThumbnailList, _toConsumableArray(fullPathFileList));
 
@@ -69,13 +60,8 @@ function copyFeedThumbnails() {
 	return new Promise(function (resolve, reject) {
 		var totalFeeds = feedThumbnailList.length;
 
-		console.log('totalFeeds: ' + totalFeeds);
-
 		var copyFeed = function copyFeed(feedCount) {
 			var feedPath = feedThumbnailList[feedCount];
-
-			console.log('feedPath:');
-			console.log(feedPath);
 
 			var feedSlug = getSlugFromPath(feedPath),
 			    discourseLevel = getLevelFromPath(feedPath);

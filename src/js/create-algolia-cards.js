@@ -45,13 +45,10 @@ new Promise(function (resolve, reject) {
 		console.log("\nSeeding Algolia cards index from G+ collection and hardcoded cards.json input ...\n");
 
 		google.cards.forEach(function (gplusCard) {
-
-			console.log('name: ' + gplusCard.name);
-
 			// Generate the slug
 			var slug = (0, _utils.createSlug)(gplusCard.name);
 
-			console.log('slug: ' + slug);
+			console.log('Saving JSON to ' + _config.output.feeds + ': ' + slug);
 
 			// Get the hardcoded JSON data for this card by matching slugs
 			var json = cardsJSON.filter(function (el) {
@@ -66,7 +63,7 @@ new Promise(function (resolve, reject) {
 			// This is the redundant part
 			algoliaMetadata = {
 				slug: json.slug,
-				shortSlug: json.shortSlug,
+				shortSlug: json['short-slug'],
 				gplusUrl: gplusCard.url,
 				publishDate: gplusCard.publishDate,
 				updateDate: gplusCard.updateDate,
@@ -74,15 +71,15 @@ new Promise(function (resolve, reject) {
 				metrics: [],
 				images: {
 					large: {
-						// url: url.cards + slug + '/large.jpg',
+						// url: cloudfront.cards + slug + '/large.jpg',
 						width: json.images.large.width,
 						height: json.images.large.height
 					},
 					thumbnail: {
-						url: _config.url.cards + slug + '/thumbnail.jpg'
+						url: _config.cloudfront.cards + slug + '/thumbnail.jpg'
 					},
 					pyramid: {
-						// url: url.cards + slug + '/pyramid_files/',
+						// url: cloudfront.cards + slug + '/pyramid_files/',
 						maxZoomLevel: json.images.pyramid.maxZoomLevel,
 						TileSize: json.images.pyramid.TileSize
 					}

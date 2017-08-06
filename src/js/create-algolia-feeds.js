@@ -146,16 +146,16 @@ Promise.all(promiseArray)
 				metrics: feedPostAttributes.metrics,
 				images: {
 					large: {
-						// url: url.feeds + feedPostAttributes.discourse_level +
+						// url: cloudfront.feeds + feedPostAttributes.discourse_level +
 						// '/' + slug + '/large.jpg',
 						width: json.images.large.width,
 						height: json.images.large.height
 					},
 					thumbnail: {
-						url: _config.url.feeds + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
+						url: _config.cloudfront.feeds + feedPostAttributes.discourse_level + '/' + slug + '/thumbnail.jpg'
 					},
 					pyramid: {
-						// url: url.feeds + feedPostAttributes.discourse_level +
+						// url: cloudfront.feeds + feedPostAttributes.discourse_level +
 						// '/' + slug + '/pyramid_files/',
 						maxZoomLevel: json.images.pyramid.maxZoomLevel,
 						TileSize: json.images.pyramid.TileSize

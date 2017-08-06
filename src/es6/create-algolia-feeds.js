@@ -1,4 +1,4 @@
-import { dir, url, input, output, stop } from './libs/config';
+import { dir, cloudfront, input, output, stop } from './libs/config';
 import { splitText, removeSystemFiles } from './libs/utils';
 import frontMatter from 'front-matter';
 import pageDown from 'pagedown'; // Markdown processor used by Stack Overflow
@@ -135,17 +135,17 @@ Promise.all(promiseArray)
 					metrics: feedPostAttributes.metrics,
 					images: {
 						large: {
-							// url: url.feeds + feedPostAttributes.discourse_level +
+							// url: cloudfront.feeds + feedPostAttributes.discourse_level +
 								// '/' + slug + '/large.jpg',
 							width: json.images.large.width,
 							height: json.images.large.height
 						},
 						thumbnail: {
-							url: url.feeds + feedPostAttributes.discourse_level +
+							url: cloudfront.feeds + feedPostAttributes.discourse_level +
 								'/' + slug + '/thumbnail.jpg'
 						},
 						pyramid: {
-							// url: url.feeds + feedPostAttributes.discourse_level +
+							// url: cloudfront.feeds + feedPostAttributes.discourse_level +
 								// '/' + slug + '/pyramid_files/',
 							maxZoomLevel: json.images.pyramid.maxZoomLevel,
 							TileSize: json.images.pyramid.TileSize

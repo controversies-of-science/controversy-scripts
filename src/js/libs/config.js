@@ -23,6 +23,10 @@ url = exports.url = {
 	feeds: 'https://controversy-cards-feeds.s3.amazonaws.com/halton-arp-the-modern-galileo/',
 	cards: 'https://controversy-cards-images.s3.amazonaws.com/'
 },
+    cloudfront = exports.cloudfront = {
+	feeds: 'https://d2rubbqaoavtmn.cloudfront.net/halton-arp-the-modern-galileo/',
+	cards: 'https://d1kzghpdhj1ism.cloudfront.net/'
+},
     api = exports.api = {
 	feeds: 'https://wu7nsd6i3a.execute-api.us-west-1.amazonaws.com/prod/feeds/',
 	cards: 'https://1xh0wwfkjf.execute-api.us-west-1.amazonaws.com/prod/controversies/'

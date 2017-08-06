@@ -88,7 +88,9 @@ When starting from scratch, these are the first scripts which should be run.
 
 ### Algolia Search Result Generator Scripts
 
-These scripts assume that the G+ scraper script has already captured the G+ collection data.
+These scripts assume that the G+ scraper script has already captured the G+ collection data, and they are currently pointed at CloudFront edges.
+
+Once the new JSON is generated, go to the Algolia index, click "Manage Current Index", "Copy Settings" to a new index, then add **both** the `json/generated/algolia-cards.json` and `json/generated/algolia-feeds.json` files to the same new index.  Once the name of that index has changed in the frontend app, then the old index can then be deleted on Algolia.
 
 #### create-algolia-cards (DONE)
 
