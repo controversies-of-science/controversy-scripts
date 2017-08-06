@@ -110,6 +110,20 @@ These scripts assume that the large-format images already exist.
 
 `npm run create-feed-pyramids` - This generates image pyramids based upon the contents of `img/feeds`.  Be aware that this script can take a significant amount of time to complete.
 
+### S3 Image Deployments
+
+`package.json` includes:
+
+    "predeploy": "npm run build",
+    "deploy-card-images": "aws s3 sync img/cards/ s3://controversy-card-images",
+    "deploy-feed-images": "aws s3 sync img/feeds/ s3://controversy-card-feeds",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E17HLY6C4048N2 --paths '/*'",
+
+#### deploy-card-images (DONE)
+#### deploy-feed-images (DONE)
+
+**These commands exist, but have yet to be tested**.  I'm going to wait until after the conference to test them, because these are huge uploads and I believe that everything -- except the thumbnails (the smallest part) -- are done.  I'll just use FTP to do that.
+
 ## TODO
 
 - Implement S3 upload
