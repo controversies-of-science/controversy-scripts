@@ -7,6 +7,8 @@ exports.createSlug = createSlug;
 exports.saveImage = saveImage;
 exports.splitText = splitText;
 exports.createThumbnail = createThumbnail;
+exports.copyThumbnailToS3 = copyThumbnailToS3;
+exports.getIDFromS3URL = getIDFromS3URL;
 exports.removeSystemFiles = removeSystemFiles;
 
 var _fs = require('fs');
@@ -27,6 +29,10 @@ var _request2 = _interopRequireDefault(_request);
 
 var _config = require('./config');
 
+var _awsSdk = require('aws-sdk');
+
+var _awsSdk2 = _interopRequireDefault(_awsSdk);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Slugify controversy card titles, lower the casing, then remove periods and apostrophes
@@ -39,6 +45,8 @@ function createSlug(cardName) {
 }
 
 // Captures image from URL to local disk
+
+// import { execSync } from 'child_process';
 function saveImage(url, destination, resolve, reject) {
 	_request2.default.get({ url: url, encoding: 'binary' }, function (err, response, body) {
 		_fs2.default.writeFile(destination, body, 'binary', function (err) {
@@ -86,6 +94,80 @@ function createThumbnail(input, output, isAlreadyGenerated) {
 			});
 		}
 	});
+}
+
+// This differs from an 'aws s3 sync' in that it uploads files without
+// affecting the rest of the existing s3 bucket.  This function assumes
+// that a profile named 'controversy' has already been set for the
+// AWS credentials file.  See http://docs.aws.amazon.com/
+// sdk-for-javascript/v2/developer-guide/
+// loading-node-credentials-shared.html.
+function copyThumbnailToS3(thumbnailPath, bucketID, cardSlug) {
+	var s3 = void 0;
+
+	return new Promise(function (resolve, reject) {
+		s3 = new _awsSdk2.default.S3();
+
+		resolve(new _awsSdk2.default.SharedIniFileCredentials({
+			profile: 'controversy'
+		}));
+	}).then(function (credentials) {
+		_awsSdk2.default.config.credentials = credentials;
+		var bucketKey = cardSlug + '/thumbnail.jpg';
+
+		console.log('Copying ' + thumbnailPath + ' to s3://' + bucketID + '/' + bucketKey);
+
+		return new Promise(function (resolve, reject) {
+			_fs2.default.readFile(thumbnailPath, function (err, data) {
+				if (err) {
+					reject(err);
+				}
+
+				var params = {
+					Bucket: bucketID,
+					Key: bucketKey,
+					Body: data
+				};
+
+				console.log('bucketID:');
+				console.log(bucketID);
+
+				console.log('\nbucketKey:');
+				console.log(bucketKey);
+
+				console.log('\nBody:');
+				console.log(data);
+
+				s3.upload(params, function (err, data) {
+					if (err) {
+						console.log(err);
+						reject(err);
+					} else {
+						resolve();
+					}
+				});
+			});
+		});
+	}).catch(function (error) {
+		console.log("\nAn error has occurred ...");
+
+		if (error) {
+			console.log(error);
+		}
+	});
+}
+
+// The full array result looks like:
+// [ 'https://controversy-cards-images.s3.amazonaws.com/',
+// 'https://',
+// 'controversy-cards-images',
+// '.s3.amazonaws.com/',
+// index: 0,
+// input: 'https://controversy-cards-images.s3.amazonaws.com/' ]
+function getIDFromS3URL(url) {
+	var re = /^(https:\/\/)(.+)(\.s3\.amazonaws\.com\/)/;
+
+	return re.exec(url)[2];
 }
 
 function removeSystemFiles(list) {

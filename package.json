@@ -15,9 +15,11 @@
     "create-feed-thumbnails": "node src/js/create-feed-thumbnails.js",
     "create-card-pyramids": "node src/js/create-card-pyramids.js",
     "create-feed-pyramids": "node src/js/create-feed-pyramids.js",
-    "predeploy": "npm run build",
     "deploy-card-images": "aws s3 sync img/cards/ s3://controversy-card-images",
     "deploy-feed-images": "aws s3 sync img/feeds/ s3://controversy-card-feeds",
+    "deploy-card-thumbnails": "node src/js/deploy-card-thumbnails.js",
+    "deploy-feed-thumbnails": "node src/js/deploy-feed-thumbnails.js",
+    "predeploy": "npm run build",
     "postdeploy": "aws cloudfront create-invalidation --distribution-id E17HLY6C4048N2 --paths '/*'",
     "build": "babel src/es6 --out-dir src/js"
   },
@@ -32,6 +34,7 @@
   },
   "homepage": "https://github.com/controversies-of-science/controversy-scripts#readme",
   "dependencies": {
+    "aws-sdk": "^2.94.0",
     "colors": "^1.1.2",
     "front-matter": "^2.1.2",
     "he": "^1.1.1",
