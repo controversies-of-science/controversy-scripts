@@ -26,6 +26,40 @@ The scrape script assumes that you have two environmental key variables set, and
 
 These would be set in a file like `.profile` or `.bash_profile` in your root (if you are using a Linux-based machine).
 
+## S3 Uploads
+
+Any script which involves a non-deploy upload to S3 will require access to programmatic AWS credentials (typically stored in text file at `~/.aws/credentials`).  These S3-based scripts will check for a profile there named `controversy`.
+
+It's also important to properly set the IAM policy for the user that corresponds to that key:
+
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": "s3:*",
+                "Resource": "*"
+            }
+        ]
+    }
+
+The S3 bucket itself should have the policy:
+
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "AllowPublicRead",
+                "Effect": "Allow",
+                "Principal": {
+                    "AWS": "*"
+                },
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::controversy-cards-images/*"
+            }
+        ]
+    }
+
 ## Build
 
 Any changes made to the scripts need to be built with Babel before running:
