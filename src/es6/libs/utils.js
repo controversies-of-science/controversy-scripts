@@ -30,13 +30,22 @@ export function saveImage(url, destination, resolve, reject) {
 }
 
 // Algolia Search requires chunking by paragraph
-export function splitText(slug, text, breakString) {
-	return text.split(breakString).map((paragraph, i) => {
+export function splitText(slug, text, breakString, removeFirstParagraph = false) {
+	const allParagraphs = text.split(breakString).map((paragraph, i) => {
+		const count = removeFirstParagraph ? i-1 : i;
+
 		return {
-			id: slug + '-paragraph-' + i,
+			id: slug + '-paragraph-' + count,
 			paragraph
 		}
 	});
+
+	// Notice that we sometimes remove the first paragraph of the text -- which is always
+	// the summary. This requires that we also decrement our i counter above when counting
+	// out the paragraphs.
+	return removeFirstParagraph ?
+		allParagraphs.filter((paragraph, num) => num > 0) :
+		allParagraphs;
 }
 
 // Generate thumbnail.jpg from large.jpg for entire directory.  Width is set in

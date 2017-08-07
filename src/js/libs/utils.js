@@ -62,12 +62,23 @@ function saveImage(url, destination, resolve, reject) {
 
 // Algolia Search requires chunking by paragraph
 function splitText(slug, text, breakString) {
-	return text.split(breakString).map(function (paragraph, i) {
+	var removeFirstParagraph = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+	var allParagraphs = text.split(breakString).map(function (paragraph, i) {
+		var count = removeFirstParagraph ? i - 1 : i;
+
 		return {
-			id: slug + '-paragraph-' + i,
+			id: slug + '-paragraph-' + count,
 			paragraph: paragraph
 		};
 	});
+
+	// Notice that we sometimes remove the first paragraph of the text -- which is always
+	// the summary. This requires that we also decrement our i counter above when counting
+	// out the paragraphs.
+	return removeFirstParagraph ? allParagraphs.filter(function (paragraph, num) {
+		return num > 0;
+	}) : allParagraphs;
 }
 
 // Generate thumbnail.jpg from large.jpg for entire directory.  Width is set in

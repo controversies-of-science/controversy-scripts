@@ -48,10 +48,13 @@ new Promise((resolve, reject) => {
 			let json = cardsJSON.filter((el) => el.slug === slug ? true : false)[0],
 
 				// Split and label the text by paragraphs
-				splitByParagraph = splitText(slug, gplusCard.text, stop.cards),
+				splitByParagraph = splitText(slug, gplusCard.text, stop.cards, true);
+
+			// Remove the last paragraph, which is an unnecessary hashtag category
+			splitByParagraph.pop();
 
 				// This is the redundant part
-				algoliaMetadata = {
+			let algoliaMetadata = {
 					slug: json.slug,
 					shortSlug: json['short-slug'],
 					gplusUrl: gplusCard.url,
@@ -97,8 +100,11 @@ new Promise((resolve, reject) => {
 				{ cardSummary: gplusCard.summary },
 				algoliaMetadata);
 
-			algolia.sliced.cards =
-				algolia.sliced.cards.concat(summaryJSON);
+			// Do not save the summary when it is exactly the same as the card name
+			if (gplusCard.name !== gplusCard.summary) {
+				algolia.sliced.cards =
+					algolia.sliced.cards.concat(summaryJSON);
+			}
 
 			// Save all paragraphs for card just one time
 			let smallerChunkJSON = splitByParagraph.map(paragraphJSON => 
