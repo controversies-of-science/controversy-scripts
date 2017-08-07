@@ -14,8 +14,7 @@ dir = exports.dir = {
 	},
 	md: {
 		feeds: ['md/feeds/halton-arp-the-modern-galileo/worldview/', 'md/feeds/halton-arp-the-modern-galileo/model/', 'md/feeds/halton-arp-the-modern-galileo/propositional/', 'md/feeds/halton-arp-the-modern-galileo/conceptual/', 'md/feeds/halton-arp-the-modern-galileo/narrative/']
-	},
-	alfred: 'alfred/ScienceQuotes.alfredsnippets'
+	}
 },
 
 
@@ -55,4 +54,12 @@ output = exports.output = {
 stop = exports.stop = {
 	cards: '<br /><br />',
 	feeds: '\n\n'
+},
+    alfred = exports.alfred = {
+	input: 'alfred/ScienceQuotes.alfredsnippets',
+	output: {
+		raw: 'alfred/json',
+		gplus: 'json/generated/alfred-gplus.json',
+		physorg: 'json/generated/alfred-physorg.json'
+	}
 };

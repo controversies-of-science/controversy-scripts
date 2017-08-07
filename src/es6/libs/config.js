@@ -21,8 +21,7 @@ export const
 				'md/feeds/halton-arp-the-modern-galileo/conceptual/',
 				'md/feeds/halton-arp-the-modern-galileo/narrative/'
 			]
-		},
-		alfred: 'alfred/ScienceQuotes.alfredsnippets'
+		}
 	},
 
 	// Asset CDN's
@@ -60,5 +59,14 @@ export const
 	stop = {
 		cards: '<br /><br />',
 		feeds: '\n\n'
+	},
+
+	alfred = {
+		input: 'alfred/ScienceQuotes.alfredsnippets',
+		output: {
+			raw: 'alfred/json',
+			gplus: 'json/generated/alfred-gplus.json',
+			physorg: 'json/generated/alfred-physorg.json'
+		}
 	};
 	

@@ -146,6 +146,12 @@ These scripts assume that the large-format images already exist.
 
 `npm run create-feed-pyramids` - This generates image pyramids based upon the contents of `img/feeds`.  Be aware that this script can take a significant amount of time to complete.
 
+#### create-alfred-json (DONE)
+
+Assumes you have exported your Alfred snippets to a file in `/alfred` (the filename is currently hardcoded in `config.js` to `alfred/ScienceQuotes.alfredsnippets`).
+
+`npm run create-alfred-json` - Generates two sets of quotes -- one set where the quotes are all formatted for phys.org and a second where the quotes are formatted for G+ (markdown).
+
 ### S3 Image Deployments
 
 `package.json` includes:
