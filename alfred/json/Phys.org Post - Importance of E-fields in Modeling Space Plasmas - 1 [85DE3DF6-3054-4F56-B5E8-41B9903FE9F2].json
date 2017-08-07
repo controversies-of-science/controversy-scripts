@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "Importance of electric fields in modeling space plasmas\nJournal of Atmospheric and Solar-Terrestrial Physics\nGeorge K. Parks\nSpace Sciences Laboratory, University of California, Berkeley, CA 94720, USA (2005)\n\n\"Abstract - Many space plasma models use magnetohydrodynamic (MHD) theory with the approximation that the high conductivity of plasmas does not support electric fields in the fluid frame (ideal approximation). We will show that physics is consistent only if the small electric field is included. Even then, MHD theory requires knowledge about collisionless conductivity for which there is little information. MHD theory has other restrictions that make it inapplicable to collisionless space plasmas ...\"\n\n(cont'd)",
+    "dontautoexpand" : true,
+    "uid" : "85DE3DF6-3054-4F56-B5E8-41B9903FE9F2",
+    "name" : "Phys.org Post - Importance of E-fields in Modeling Space Plasmas - 1",
+    "keyword" : "pp mhd efields 1"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\nThe resulting magnetic field strength at the saddle point is zero.  Therefore, this is called a neutral point.  There is nothing strange or unusual about it ...\n\nEnergy is stored in magnetic fields.  The energy stored at any particular point in a magnetic field is proportional to the strength of the magnetic field at that point.  If the strength of the field at any given point is zero, then the stored energy there must also be zero.  No energy is stored at a neutral point.\n\nNo energy release can occur from any location at which no energy is stored.\n\nThus the 'magnetic reconnection' mechanism fails as the cause of explosive ejections of matter from the Sun or as the cause of coronal heating ...\n\nHannes Alfven condemned [94] the 'merging' and 'reconnecting' concepts:\n\n[94] \"Double Layers and Circuits in Astrophysics,\" IEEE Trans. on Plasma Sci., Vol. PS-14, No. 6, Dec 1986.\n\n(cont'd)",
+    "uid" : "A2B2D41D-423A-45BA-88B0-DDA5998815FE",
+    "name" : "Phys.org Post - Magnetic Reconnection - Part 9",
+    "keyword" : "pp magnetic reconnection 9"
+  }
+}

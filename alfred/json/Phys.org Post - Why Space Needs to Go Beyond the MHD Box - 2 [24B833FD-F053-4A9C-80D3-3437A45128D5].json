@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... Understanding collisionless plasma dynamics such as substorms in the plasma sheet requires the self-consistency that only kinetic theory can provide. Kinetic modeling is still undergoing continual development with many studies limited to one and two dimensions, but there is urgent need to improve these models as more and more data show kinetic physics is fundamentally important. Only then will we be able to make progress and obtain a correct picture of how collisionless plasmas work in space ...\n\nSerious objections have been raised from the beginning of the space era about the application of MHD theory to collisionless space plasmas ... Although it is well-known that MHD theory is applicable only to a restricted class of plasma problems of which collisionless plasmas are not a part (Krall and Trivelpiece, 1973), MHD and ideal MHD theories have been used in space without due regard to these restrictions.\"",
+    "dontautoexpand" : true,
+    "uid" : "24B833FD-F053-4A9C-80D3-3437A45128D5",
+    "name" : "Phys.org Post - Why Space Needs to Go Beyond the MHD Box - 2",
+    "keyword" : "pp mhd box 2"
+  }
+}

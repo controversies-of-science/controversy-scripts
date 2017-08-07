@@ -21,7 +21,8 @@ export const
 				'md/feeds/halton-arp-the-modern-galileo/conceptual/',
 				'md/feeds/halton-arp-the-modern-galileo/narrative/'
 			]
-		}
+		},
+		alfred: 'alfred/ScienceQuotes.alfredsnippets'
 	},
 
 	// Asset CDN's

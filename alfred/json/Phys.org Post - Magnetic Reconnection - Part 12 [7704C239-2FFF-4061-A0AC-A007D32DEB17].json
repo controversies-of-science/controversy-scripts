@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd, quoting Princeton Plasma Physics Lab ...)\n\n\"... In most cases, solar and magnetospheric plasmas can be described very accurately with such a theory since they are both very conductive.\n\nHowever, straightforward application of the theory would remove the possibility of ejected solar plasma penetrating the magnetosphere since the plasmas would not be allowed to mix.  Nevertheless, based on observations and known technological disruptions, we know that they must mix, BUT HOW?'\n\n[96] http:\/\/mrx.pppl.gov\/ Then click on Physics.\n\nNote the continued ignorance of the fact that magnetic fields are not 'frozen into' plasmas and that plasmas are not perfect conductors.  This lack of knowledge is surprising, given the fact that it has been over thirty years since Alfven's 1970 Nobel Prize acceptance speech in which he pointed this out.  This misunderstanding is what leads to the bewilderment expressed in the last sentence in the above statement.\"\n\n(cont'd)",
+    "uid" : "7704C239-2FFF-4061-A0AC-A007D32DEB17",
+    "name" : "Phys.org Post - Magnetic Reconnection - Part 12",
+    "keyword" : "pp magnetic reconnection 12"
+  }
+}

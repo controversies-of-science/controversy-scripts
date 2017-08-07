@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"The CIV values of elements commonly found in space are not distributed randomly but are grouped into four distinct bands around certain velocity values. Within each band, all the elements in that band have similar CIVs to each other.\n\nIn the vicinity of a field-aligned current, the E × B force causes a radial drift of ions and electrons towards the cooler central axis. Because of their differing CIVs, different ions will recombine at different radii as they move towards the centre and enter progressively cooler regions.\n\nThis process is known as Marklund Convection after the Swedish physicist who discovered it, Göran Marklund.\n\nThe net result is that Marklund Convection sorts any elements present in the locality into different groups according to their ionization potentials. The groups of elements are arranged in cylindrical shells at different radii within a cylindrical field-aligned current ...\"",
+    "uid" : "8B581810-64C3-4AD4-A53F-B85096129CEB",
+    "name" : "Phys.org Post - Why Cosmic Filaments Are Electric - 9",
+    "keyword" : "pp filament 9"
+  }
+}

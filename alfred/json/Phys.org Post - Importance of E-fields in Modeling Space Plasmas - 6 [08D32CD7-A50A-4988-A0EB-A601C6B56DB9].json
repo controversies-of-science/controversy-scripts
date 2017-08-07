@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... Although the E-field in the plasma frame is small, theories must start with the full eq E' = E + V x B since otherwise the theory precludes induction of the EMF. If E' = 0 from the outset as in ideal MHD theory, the formulation only incorporates frozen-in physics. This is because the electric force the particles experience vanishes, & plasmas will lose the capability to interact. Therefore, no new currents will be generated & ideal MHD theory is restricted to describing only preexisting electromagnetic fields & currents that are frozen in the plasma. This theory cannot account for the production of boundaries nor can it describe dynamic phenomena such as auroras & flares that require generation of new currents. The importance of currents in dynamic plasmas has been repeatedly emphasized by Alfven (1977).\"",
+    "dontautoexpand" : true,
+    "uid" : "08D32CD7-A50A-4988-A0EB-A601C6B56DB9",
+    "name" : "Phys.org Post - Importance of E-fields in Modeling Space Plasmas - 6",
+    "keyword" : "pp mhd efields 6"
+  }
+}

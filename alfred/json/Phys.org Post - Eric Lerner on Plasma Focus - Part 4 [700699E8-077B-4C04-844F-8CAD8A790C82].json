@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... The focus -- invented independently in the early sixties by a Soviet, N. V. Filippov, and an American, Joseph Mather -- is extremely simple, in contrast to the huge and complex tokamak, a large magnetic device that has long dominated fusion research. The focus consisted of two conducting copper cylinders, several centimeters across, nested inside each other (Fig. 6.12). When a large current is discharged across the cylinder, a remarkable sequence of events ensues.\n\nThe current rapidly ionizes the plasma and forms into eight or ten pairs of force-free filaments, each a millimeter in diameter, which roll down the cylinder, propelled by the interaction of their currents with the background magnetic field. When they reach the end of the cylinder, they fountain inward (Fig. 6.13a). Each pair, consisting of two vortices rotating in opposite direc- tions, annihilate each other, leaving only one survivor to carry the entire current ...\"\n\n(cont'd)",
+    "uid" : "700699E8-077B-4C04-844F-8CAD8A790C82",
+    "name" : "Phys.org Post - Eric Lerner on Plasma Focus - Part 4",
+    "keyword" : "pp lerner plasma focus 4"
+  }
+}

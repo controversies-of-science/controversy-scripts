@@ -14,7 +14,8 @@ dir = exports.dir = {
 	},
 	md: {
 		feeds: ['md/feeds/halton-arp-the-modern-galileo/worldview/', 'md/feeds/halton-arp-the-modern-galileo/model/', 'md/feeds/halton-arp-the-modern-galileo/propositional/', 'md/feeds/halton-arp-the-modern-galileo/conceptual/', 'md/feeds/halton-arp-the-modern-galileo/narrative/']
-	}
+	},
+	alfred: 'alfred/ScienceQuotes.alfredsnippets'
 },
 
 

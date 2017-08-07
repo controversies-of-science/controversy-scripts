@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... Another issue in space physics is treating MHD fluids as ideal ... Ideal fluids have infinite conductivity (zero resistance) & the implicit charge mobility prevents them from supporting any E-field. The ideal fluid was originally conceptualized by Alfvén (1953) to study how MHD waves would behave if conductivity were imagined to be infinite. In such an ideal limit, magnetic fields would become frozen in the fluid. However, the frozen-in-field concept requires the strict criterion E · B = 0 which is not always satisfied in space ... This criterion is violated in Earth’s ionosphere where E|| has been observed ... in the vicinity of the magnetopause where it has been shown that the ion & electron motions are decoupled & thus the frozen-in-field condition is violated ... in the plasma sheet during substorms when large variations of the magnetic field are observed to generate new inductive currents ... and in the solar corona where the collisionless solar wind originates ...\"",
+    "dontautoexpand" : true,
+    "uid" : "BC6DDB9B-1D76-48E2-B305-38202C2AC133",
+    "name" : "Phys.org Post - Why Space Needs to Go Beyond the MHD Box - 3",
+    "keyword" : "pp mhd box 3"
+  }
+}

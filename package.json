@@ -4,6 +4,7 @@
   "description": "Suite of tools to simplify management of backend API",
   "main": "index.js",
   "scripts": {
+    "create-alfred-json": "node src/js/create-alfred-json.js",
     "scrape-gplus-data": "node src/js/scrape-gplus-data.js",
     "scrape-gplus-directories": "node src/js/scrape-gplus-directories.js",
     "scrape-gplus-images": "node src/js/scrape-gplus-images.js",
@@ -36,6 +37,7 @@
   },
   "homepage": "https://github.com/controversies-of-science/controversy-scripts#readme",
   "dependencies": {
+    "adm-zip": "^0.4.7",
     "aws-sdk": "^2.94.0",
     "colors": "^1.1.2",
     "front-matter": "^2.1.2",
