@@ -1,6 +1,6 @@
 {
   "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"But as noted above, in the plasma glow-discharge model the interplanetary electric field will be extremely weak. No instrument placed in space could measure the radial voltage differential across a few tens of meters, any more than it could measure the solar wind acceleration over a few tens of meters. But we can observe the solar wind acceleration over tens of millions of kilometers, confirming that the electric field of the Sun, though imperceptible in terms of volts per meter, is sufficient to sustain a powerful drift current across interplanetary space. Given the massive volume of this space, the implied current is quite sufficient to power the Sun ...\"",
+    "snippet" : "(cont'd)\n\n\"... But as noted above, in the plasma glow-discharge model the interplanetary electric field will be extremely weak. No instrument placed in space could measure the radial voltage differential across a few tens of meters, any more than it could measure the solar wind acceleration over a few tens of meters. But we can observe the solar wind acceleration over tens of millions of kilometers, confirming that the electric field of the Sun, though imperceptible in terms of volts per meter, is sufficient to sustain a powerful drift current across interplanetary space. Given the massive volume of this space, the implied current is quite sufficient to power the Sun ...\"",
     "uid" : "1A3E2EF4-7B61-4D1B-AF7B-0C64174E4C85",
     "name" : "Phys.org Post - Electric Sun - Part 9",
     "keyword" : "pp electric sun 9"

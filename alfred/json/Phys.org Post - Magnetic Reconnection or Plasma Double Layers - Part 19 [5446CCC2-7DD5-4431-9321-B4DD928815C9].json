@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... Anyway, this other companion paper published in Science said -- and this is I think one of the most important errors one could come up with ...\n\nQuote [from Science paper titled 'Electron-scale measurements of magnetic reconnection in space']:\n\n'NASA's magnetospheric multiscale mission has found direct evidence for electron demagnetization and acceleration.' (JL Burch et al)\n\nWhat?!\n\nAt best, this is misleading, if not totally wrong.  They use the word 'demagnetization'.  What does that mean in regard to an electron?  A sample of iron can become magnetized.  That's certain.  It becomes a bar magnet.  It contains remnant magnetism, and so you say a piece of iron has become magnetized.  But an electron can't do that ...\"\n\n(cont'd)",
+    "uid" : "5446CCC2-7DD5-4431-9321-B4DD928815C9",
+    "name" : "Phys.org Post - Magnetic Reconnection or Plasma Double Layers? - Part 19",
+    "keyword" : "pp magnetic reconnection 19"
+  }
+}
