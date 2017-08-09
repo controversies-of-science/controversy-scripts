@@ -16,7 +16,13 @@ var _loadJsonFile = require('load-json-file');
 
 var _loadJsonFile2 = _interopRequireDefault(_loadJsonFile);
 
+var _pagedown = require('pagedown');
+
+var _pagedown2 = _interopRequireDefault(_pagedown);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Markdown processor used by Stack 
 
 var zip = void 0,
     rawQuotes = void 0,
@@ -24,6 +30,8 @@ var zip = void 0,
     rawAlfredJSON = [],
     physorgJSON = [],
     gplusJSON = [];
+
+var markdownConverter = _pagedown2.default.getSanitizingConverter();
 
 function fetchAlfredJSONList() {
 	return new Promise(function (resolve, reject) {
@@ -83,9 +91,10 @@ function processRawAlfredJSON() {
 				quoteKeyword = quoteKeyword.replace(/^pp\s/, '');
 
 				physorgJSON.push({
-					name: quoteName,
+					id: (0, _utils.createSlug)(quoteName),
+					quoteName: quoteName,
 					keyword: quoteKeyword,
-					snippet: quoteSnippet
+					quoteParagraph: quoteSnippet
 				});
 			} else if (quoteName.match(/^G\+ Post - /)) {
 				// Remove any prefixes from the names
@@ -96,9 +105,10 @@ function processRawAlfredJSON() {
 				quoteKeyword = quoteKeyword.replace(/^gp\s/, '');
 
 				gplusJSON.push({
-					name: quoteName,
+					id: (0, _utils.createSlug)(quoteName),
+					quoteName: quoteName,
 					keyword: quoteKeyword,
-					snippet: quoteSnippet
+					quoteParagraph: markdownConverter.makeHtml(quoteSnippet)
 				});
 			}
 		});

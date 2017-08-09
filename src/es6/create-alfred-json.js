@@ -1,8 +1,9 @@
 import AdmZip from 'adm-zip';
 import fs from 'fs';
 import { alfred } from './libs/config';
-import { removeSystemFiles } from './libs/utils';
+import { removeSystemFiles, createSlug } from './libs/utils';
 import loadJSONFile from 'load-json-file';
+import pageDown from 'pagedown'; // Markdown processor used by Stack 
 
 let zip,
 	rawQuotes,
@@ -10,6 +11,9 @@ let zip,
 	rawAlfredJSON = [],
 	physorgJSON = [],
 	gplusJSON = [];
+
+const
+	markdownConverter = pageDown.getSanitizingConverter();
 
 function fetchAlfredJSONList() {
 	return new Promise((resolve, reject) => {
@@ -73,9 +77,10 @@ function processRawAlfredJSON() {
 				quoteKeyword = quoteKeyword.replace(/^pp\s/, '');
 				
 				physorgJSON.push({
-					name: quoteName,
+					id: createSlug(quoteName),
+					quoteName: quoteName,
 					keyword: quoteKeyword,
-					snippet: quoteSnippet
+					quoteParagraph: quoteSnippet
 				});
 			} else if (quoteName.match(/^G\+ Post - /)) {
 				// Remove any prefixes from the names
@@ -86,9 +91,10 @@ function processRawAlfredJSON() {
 				quoteKeyword = quoteKeyword.replace(/^gp\s/, '');
 
 				gplusJSON.push({
-					name: quoteName,
+					id: createSlug(quoteName),
+					quoteName: quoteName,
 					keyword: quoteKeyword,
-					snippet: quoteSnippet
+					quoteParagraph: markdownConverter.makeHtml(quoteSnippet)
 				});
 			}
 		});
