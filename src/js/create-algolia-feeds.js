@@ -137,6 +137,8 @@ Promise.all(promiseArray)
 			    algoliaFeedPost = [],
 			    algoliaMetadata = {
 				card: feedPostAttributes.controversy,
+				cardSlug: json.card,
+				feedSlug: slug,
 				discourseLevel: feedPostAttributes.discourse_level,
 				authors: feedPostAttributes.authors,
 				publishDate: feedPostAttributes.date,

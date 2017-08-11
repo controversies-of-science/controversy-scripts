@@ -1,7 +1,7 @@
 [
 	{
 		"slug" : "10-times-quasar-superluminal-motion",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -16,7 +16,7 @@
 	},
 	{
 		"slug" : "galaxy-quasar-statistical-arguments",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -31,7 +31,7 @@
 	},
 	{
 		"slug" : "mark205-ngc4319-interaction",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -46,7 +46,7 @@
 	},
 	{
 		"slug" : "galaxy-quasar-association-statistics",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -61,7 +61,7 @@
 	},
 	{
 		"slug" : "arp-bayes-theorem",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -76,7 +76,7 @@
 	},
 	{
 		"slug" : "arp-rejection",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -91,7 +91,7 @@
 	},
 	{
 		"slug" : "arp-vindications",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -106,7 +106,7 @@
 	},
 	{
 		"slug" : "galactic-interactions-critique",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -121,7 +121,7 @@
 	},
 	{
 		"slug" : "quasar-clumping-problem",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -136,7 +136,7 @@
 	},
 	{
 		"slug" : "gravitational-lensing-origin",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -151,7 +151,7 @@
 	},
 	{
 		"slug" : "einstein-rings-expectations-vs-observations",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -166,7 +166,7 @@
 	},
 	{
 		"slug" : "first-lens-claim",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -181,7 +181,7 @@
 	},
 	{
 		"slug" : "fred-hoyle-complication-quote",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -196,7 +196,7 @@
 	},
 	{
 		"slug" : "grb-sightline-problem",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -211,7 +211,7 @@
 	},
 	{
 		"slug" : "hide-the-null-result",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -226,7 +226,7 @@
 	},
 	{
 		"slug" : "hogan-and-the-graduate",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -241,7 +241,7 @@
 	},
 	{
 		"slug" : "hoyles-disproof",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -256,7 +256,7 @@
 	},
 	{
 		"slug" : "early-quasar-history-immediate-difficulties",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -271,7 +271,7 @@
 	},
 	{
 		"slug" : "importance-of-deep-photographs",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -286,7 +286,7 @@
 	},
 	{
 		"slug" : "karlsson-effect",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -301,7 +301,7 @@
 	},
 	{
 		"slug" : "a-peculiar-disproof",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -316,7 +316,7 @@
 	},
 	{
 		"slug" : "largest-structure-in-the-universe",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -331,7 +331,7 @@
 	},
 	{
 		"slug" : "nereids-defense-of-transparent-bulge",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -346,7 +346,7 @@
 	},
 	{
 		"slug" : "high-redshift-quasar-in-front-of-low-redshift-galaxy",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -361,7 +361,7 @@
 	},
 	{
 		"slug" : "galaxy-quasar-paper-rejection",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -376,7 +376,7 @@
 	},
 	{
 		"slug" : "one-in-one-hundred-thousand-billion-chance",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -391,7 +391,7 @@
 	},
 	{
 		"slug" : "redshift-periodicity-observations",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -406,7 +406,7 @@
 	},
 	{
 		"slug" : "redshift-quantization-debate",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -421,7 +421,7 @@
 	},
 	{
 		"slug" : "quasar-axes-alignment",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -436,7 +436,7 @@
 	},
 	{
 		"slug" : "quasar-books",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -451,7 +451,7 @@
 	},
 	{
 		"slug" : "what-about-unassociated-quasars",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -466,7 +466,7 @@
 	},
 	{
 		"slug" : "quasar-proper-motion",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -481,7 +481,7 @@
 	},
 	{
 		"slug" : "quasar-redshift-interpretation",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -496,7 +496,7 @@
 	},
 	{
 		"slug" : "quasar-time-dilation",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -511,7 +511,7 @@
 	},
 	{
 		"slug" : "setterfield-quantized-redshifts",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -526,7 +526,7 @@
 	},
 	{
 		"slug" : "arp-statistics-battle",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -541,7 +541,7 @@
 	},
 	{
 		"slug" : "importance-of-telescope-time",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -556,7 +556,7 @@
 	},
 	{
 		"slug" : "x-ray-heresy",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "worldview",
 		"images" : {
 			"pyramid" : {
@@ -571,7 +571,7 @@
 	},
 	{
 		"slug" : "arp-narlikar-cosmology",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -586,7 +586,7 @@
 	},
 	{
 		"slug" : "arp-obit",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -601,7 +601,7 @@
 	},
 	{
 		"slug" : "dwarf-galaxy-anomaly",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -616,7 +616,7 @@
 	},
 	{
 		"slug" : "first-quadruple-quasar",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -631,7 +631,7 @@
 	},
 	{
 		"slug" : "matter-creation",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -646,7 +646,7 @@
 	},
 	{
 		"slug" : "periodicity-investigators",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -661,7 +661,7 @@
 	},
 	{
 		"slug" : "plasma-focus-agn",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "model",
 		"images" : {
 			"pyramid" : {
@@ -676,7 +676,7 @@
 	},
 	{
 		"slug" : "are-agns-common",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -691,7 +691,7 @@
 	},
 	{
 		"slug" : "arp-192-limb",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -706,7 +706,7 @@
 	},
 	{
 		"slug" : "arp-density-quantization-conjecture",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -721,7 +721,7 @@
 	},
 	{
 		"slug" : "arp-relativity",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -736,7 +736,7 @@
 	},
 	{
 		"slug" : "if-redshift-quantization-then-local-quasars",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -751,7 +751,7 @@
 	},
 	{
 		"slug" : "transverse-redshift-factor",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -766,7 +766,7 @@
 	},
 	{
 		"slug" : "gravitational-lens-falsifiable",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -781,7 +781,7 @@
 	},
 	{
 		"slug" : "low-mass-electrons",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "propositional",
 		"images" : {
 			"pyramid" : {
@@ -796,7 +796,7 @@
 	},
 	{
 		"slug" : "anomalous-redshifts-conventional-view",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -811,7 +811,7 @@
 	},
 	{
 		"slug" : "arp-explains-quasar-conventional",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -826,7 +826,7 @@
 	},
 	{
 		"slug" : "disrupted-galaxy",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -841,7 +841,7 @@
 	},
 	{
 		"slug" : "gee-whiz-science",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -856,7 +856,7 @@
 	},
 	{
 		"slug" : "isophote",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -871,7 +871,7 @@
 	},
 	{
 		"slug" : "mitchell-explains-redshift",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -886,7 +886,7 @@
 	},
 	{
 		"slug" : "nereid-quasar-definition",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -901,7 +901,7 @@
 	},
 	{
 		"slug" : "proper-motion",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -916,7 +916,7 @@
 	},
 	{
 		"slug" : "redshift-components",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -931,7 +931,7 @@
 	},
 	{
 		"slug" : "redshift-vs-recession-velocity",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -946,7 +946,7 @@
 	},
 	{
 		"slug" : "time-dilation",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -961,7 +961,7 @@
 	},
 	{
 		"slug" : "verschuur-agn-history",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -976,7 +976,7 @@
 	},
 	{
 		"slug" : "x-ray-sources",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "conceptual",
 		"images" : {
 			"pyramid" : {
@@ -991,7 +991,7 @@
 	},
 	{
 		"slug" : "arp-amateurs-salvation",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "narrative",
 		"images" : {
 			"pyramid" : {
@@ -1006,7 +1006,7 @@
 	},
 	{
 		"slug" : "telescope-time-gang",
-		"card" : "halton-arp-the-modern-galileo",
+		"card" : "arp",
 		"level" : "narrative",
 		"images" : {
 			"pyramid" : {
