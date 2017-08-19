@@ -29,7 +29,7 @@ function fetchExistingFeeds() {
 		feedsAPI = new Feeds();
 
 		console.log('Fetching the existing collection of cards ...');
-		resolve(feedsAPI.getFeedSlugs('halton-arp'));
+		resolve(feedsAPI.getFeedSlugs('halton-arp-the-modern-galileo'));
 	});
 }
 
@@ -133,7 +133,7 @@ function confirmFeedDeletion() {
 			if (result.confirmation === 'y' ||
 				result.confirmation === 'yes') {
 
-				resolve(deleteExistingFeeds('halton-arp'));
+				resolve(deleteExistingFeeds('halton-arp-the-modern-galileo'));
 			} else {
 				resolve();
 			}
@@ -230,27 +230,29 @@ function processFeedPosts() {
 function postAllScrapedFeeds(feeds) {
 	console.log('\nNow saving controversy card feed posts to feeds API ...\n');
 
+	const localFeedHash = {};
+
+	// Create a hash map for easier referencing.  There was a bug here, but
+	// I believe that I've fixed it ...
+	for (let feedData of dynamo.feed.data) {
+		localFeedHash[feedData['slug']] = {
+			cardSlug: feedData['card'],
+			images: feedData['images'],
+			discourseLevel: feedData['level']
+		}
+	}
+
 	new Promise((resolve, reject) => {
 		let putFeed = function(count) {
 			const
 				feed = dynamo.feed.json[count],
-				slug = feed.feedSlug,
-				localFeedHash = {};
-
-			// Create a hash map for easier referencing
-			for (let feedData of dynamo.feed.data) {
-				localFeedHash[slug] = {
-					cardSlug: feedData['card'],
-					images: feedData['images'],
-					discourseLevel: feedData['level']
-				}
-			}
+				slug = feed.feedSlug;
 
 			console.log(count + ': Saving controversy card feed for ' +
 				feed.cardSlug + ' to feed API: ' + feed.feedName);
 
 			feedsAPI.createFeed(
-				localFeedHash[slug]['cardSlug'],
+				feed.cardSlug,
 				slug,
 				feed.feedName,
 				feed.feedCategories,

@@ -57,7 +57,7 @@ function fetchExistingFeeds() {
 		feedsAPI = new _feeds2.default();
 
 		console.log('Fetching the existing collection of cards ...');
-		resolve(feedsAPI.getFeedSlugs('halton-arp'));
+		resolve(feedsAPI.getFeedSlugs('halton-arp-the-modern-galileo'));
 	});
 }
 
@@ -157,7 +157,7 @@ function confirmFeedDeletion() {
 		_prompt2.default.get(schema, function (err, result) {
 			if (result.confirmation === 'y' || result.confirmation === 'yes') {
 
-				resolve(deleteExistingFeeds('halton-arp'));
+				resolve(deleteExistingFeeds('halton-arp-the-modern-galileo'));
 			} else {
 				resolve();
 			}
@@ -250,45 +250,47 @@ function processFeedPosts() {
 function postAllScrapedFeeds(feeds) {
 	console.log('\nNow saving controversy card feed posts to feeds API ...\n');
 
+	var localFeedHash = {};
+
+	// Create a hash map for easier referencing.  There was a bug here, but
+	// I believe that I've fixed it ...
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+		for (var _iterator = dynamo.feed.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+			var feedData = _step.value;
+
+			localFeedHash[feedData['slug']] = {
+				cardSlug: feedData['card'],
+				images: feedData['images'],
+				discourseLevel: feedData['level']
+			};
+		}
+	} catch (err) {
+		_didIteratorError = true;
+		_iteratorError = err;
+	} finally {
+		try {
+			if (!_iteratorNormalCompletion && _iterator.return) {
+				_iterator.return();
+			}
+		} finally {
+			if (_didIteratorError) {
+				throw _iteratorError;
+			}
+		}
+	}
+
 	new Promise(function (resolve, reject) {
 		var putFeed = function putFeed(count) {
 			var feed = dynamo.feed.json[count],
-			    slug = feed.feedSlug,
-			    localFeedHash = {};
-
-			// Create a hash map for easier referencing
-			var _iteratorNormalCompletion = true;
-			var _didIteratorError = false;
-			var _iteratorError = undefined;
-
-			try {
-				for (var _iterator = dynamo.feed.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-					var feedData = _step.value;
-
-					localFeedHash[slug] = {
-						cardSlug: feedData['card'],
-						images: feedData['images'],
-						discourseLevel: feedData['level']
-					};
-				}
-			} catch (err) {
-				_didIteratorError = true;
-				_iteratorError = err;
-			} finally {
-				try {
-					if (!_iteratorNormalCompletion && _iterator.return) {
-						_iterator.return();
-					}
-				} finally {
-					if (_didIteratorError) {
-						throw _iteratorError;
-					}
-				}
-			}
+			    slug = feed.feedSlug;
 
 			console.log(count + ': Saving controversy card feed for ' + feed.cardSlug + ' to feed API: ' + feed.feedName);
 
-			feedsAPI.createFeed(localFeedHash[slug]['cardSlug'], slug, feed.feedName, feed.feedCategories, feed.text, feed.feedAuthors, localFeedHash[slug]['images'], localFeedHash[slug]['discourseLevel'], feed.publishDate, feed.updateDate).then(function (data) {
+			feedsAPI.createFeed(feed.cardSlug, slug, feed.feedName, feed.feedCategories, feed.text, feed.feedAuthors, localFeedHash[slug]['images'], localFeedHash[slug]['discourseLevel'], feed.publishDate, feed.updateDate).then(function (data) {
 				var next = ++count;
 
 				if (next >= dynamo.feed.json.length) {
