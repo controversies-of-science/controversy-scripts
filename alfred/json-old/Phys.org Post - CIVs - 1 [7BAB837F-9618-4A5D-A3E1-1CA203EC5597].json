@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "From \"On the Critical Ionization Velocity Effect in Interstellar Space and Possible Detection of Related Continuum Emission\" by Gerrit Verschuur ...\n\n\"Interstellar neutral hydrogen (HI) emission spectra manifest several families of linewidths whose numerical values (34, 13, and 6 km\/s) appear to be related to the critical ionization velocities (CIVs) of the most abundant interstellar atomic species. Extended new analysis of HI emission profiles shows that the 34-km\/s-wide component, which probably corresponds to the CIV for helium, is pervasive. The 34-km\/s-wide linwidth family is found in low-velocity (local) HI profiles and in the so-called high-velocity clouds (HVCs). In addition, published studies of HI linewidths found in the Magellanic Stream, Very High Velocity Clouds, and Compact HVCs ...\"\n\nCIV's are what you get when charged particles are slammed into neutral gas.  It appears as a redshift, but unlike Doppler-style redshifts, the CIV redshift is quantized, and it adds to any Doppler shift which might also apply.",
-    "dontautoexpand" : true,
-    "uid" : "7BAB837F-9618-4A5D-A3E1-1CA203EC5597",
-    "name" : "Phys.org Post - CIVs - 1",
-    "keyword" : "pp civ 1"
-  }
-}

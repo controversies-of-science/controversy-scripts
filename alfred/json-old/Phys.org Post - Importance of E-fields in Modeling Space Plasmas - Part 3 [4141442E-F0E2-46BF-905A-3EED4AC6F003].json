@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... However, Ohm’s law requires information on conductivity and conductivity is not precisely defined for collisionless plasmas ... This important issue is often ignored by arguing that E-fields in plasmas are small & thus negligible. The ideal MHD approximation treats plasmas as having infinite conductivity disregarding any resistive effects ... While interesting concepts result from treating plasmas as ideal, these ideal concepts do not describe the behavior of real space plasmas ...\"",
+    "dontautoexpand" : true,
+    "uid" : "4141442E-F0E2-46BF-905A-3EED4AC6F003",
+    "name" : "Phys.org Post - Importance of E-fields in Modeling Space Plasmas - Part 3",
+    "keyword" : "pp mhd efields 3"
+  }
+}

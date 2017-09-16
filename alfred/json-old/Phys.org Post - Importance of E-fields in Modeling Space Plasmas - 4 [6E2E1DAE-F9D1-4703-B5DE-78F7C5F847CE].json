@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"We will show that the small E-field is what allows particles to move & interact with each other. Without this E-field, physics loses consistency. In ideal MHD theory, there is no electromotive force (EMF) & hence the total magnetic flux is conserved leading to the frozen-in field concept ... If ideal MHD theory is applied from the outset, the theory can describe only pre-existing fields & currents that are frozen in the plasma. No new dynamics can be produced. A real understanding of space plasma must include the behavior of time-dependent fields & currents & not be limited to just the frozen-in fields & currents ...\"",
-    "dontautoexpand" : true,
-    "uid" : "6E2E1DAE-F9D1-4703-B5DE-78F7C5F847CE",
-    "name" : "Phys.org Post - Importance of E-fields in Modeling Space Plasmas - 4",
-    "keyword" : "pp mhd efields 4"
-  }
-}

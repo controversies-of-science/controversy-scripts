@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(if you are having trouble visualizing this, then follow the link to see the diagrams)\n\n\"It is also found that the interaction of the axial and azimuthal (ring) components of the helical I and B cause both I and B to be largely confined to a cylinder of definite radius centered on the axis.\n\nTo summarize, the absence of significant pressure in space plasmas causes currents to flow in cylindrical filaments aligned with the general magnetic field direction. Within the cylindrical filament, both the current and the magnetic field will spiral around the axis of the cylinder whilst remaining parallel to each other.\n\nNote that if for any reason the parallel alignment between I and the total B is disturbed, then an I × B force will arise and cause either radial compression or radial expansion, depending on which of the two components is more axial ...\"",
-    "uid" : "BA6D2E22-70D3-42A1-A2E4-A1287F3E122C",
-    "name" : "Phys.org Post - Why Cosmic Filaments Are Electric - 3",
-    "keyword" : "pp filament 3"
-  }
-}

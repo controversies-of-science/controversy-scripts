@@ -1,0 +1,9 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... Space physics has progressed by making approximations. Instead of solving the fundamental Boltzmann transport eq. coupled to Maxwell’s eq of electrodynamics, the simpler MHD eq's have been used. MHD theory relies on the conservation eq's of mass, momentum and energy obtained from the first 3 velocity moments of the Boltzmann eq. As is well-known, the moments approach produces more unknowns than eq's & thus requires additional eq's. This closure problem is resolved by assuming plasmas behave like ordinary conductors and Ohm’s law is added to the set of MHD eq's ...\"",
+    "dontautoexpand" : true,
+    "uid" : "2C0BA00B-53C4-4EE4-A094-6B843C33A296",
+    "name" : "Phys.org Post - Importance of E-fields in Modeling Space Plasmas - Part 2",
+    "keyword" : "pp mhd efields 2"
+  }
+}

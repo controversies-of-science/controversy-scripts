@@ -146,9 +146,13 @@ These scripts assume that the large-format images already exist.
 
 `npm run create-feed-pyramids` - This generates image pyramids based upon the contents of `img/feeds`.  Be aware that this script can take a significant amount of time to complete.
 
+### Alfred Quotes Import Script
+
+Alfred is a popular automation tool that comes with an ability to create snippets which can be quickly invoked from any Mac app with a keyboard shortcut.  The quotes can be exported, and this script automates the production of a single properly-formatted JSON file which can be subsequently imported into Algolia search.  These appear in search results as quotes -- which are not necessarily associated with any particular controversy card or feed.  In some cases, the quotes are redundant of existing card material, but alternatively, it can also be information which will eventually become a card or feed.
+
 #### create-alfred-json (DONE)
 
-Assumes you have exported your Alfred snippets to a file in `/alfred` (the filename is currently hardcoded in `config.js` to `alfred/ScienceQuotes.alfredsnippets`).
+Assumes you have exported your Alfred snippets to a file in `/alfred` (the filename is currently hardcoded in `config.js` to `alfred/ScienceQuotes.alfredsnippets`).  It saves the final JSON file into `json/generated/`.
 
 `npm run create-alfred-json` - Generates two sets of quotes -- one set where the quotes are all formatted for phys.org and a second where the quotes are formatted for G+ (markdown).
 
