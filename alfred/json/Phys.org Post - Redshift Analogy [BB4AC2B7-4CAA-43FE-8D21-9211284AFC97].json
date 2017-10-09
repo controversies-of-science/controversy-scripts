@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "\"If all mice have tails and this is a mouse, then it has a tail.  The theorem behind this line of reasoning is known as 'modus ponens'.  An encounter with three blind, tailless mice doesn't disprove the theorem; only the premise that all mice have tails.  Credulists are not always as logical.  To say 'if receding stars have redshifts and this star has a redshift then it is receding' is not modus ponens, it is 'pons asinorum'.  It is no more logical than to assert that everything with a tail must be a mouse.\"\n\n- Prof. John Billingsley",
+    "uid" : "BB4AC2B7-4CAA-43FE-8D21-9211284AFC97",
+    "name" : "Phys.org Post - Redshift Analogy",
+    "keyword" : "pp redshift analogy"
+  }
+}

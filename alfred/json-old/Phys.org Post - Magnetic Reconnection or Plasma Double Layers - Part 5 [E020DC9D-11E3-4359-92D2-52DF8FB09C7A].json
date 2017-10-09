@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "The question that should be asked is whether or not magnetic reconnection is simply a restatement of a phenomenon which is already fully described by double layers. If you start out with two different conceptions of space -- one being first-order mechanical, and the other being that space plasmas can behave in fundamentally, first-order electrodynamic ways -- it may be that the inference completely follows from the original hypothesis ...\n\n- mechanical: magnetic reconnection\n- electrodynamic: double layers\n\nIt does not seem that the mainstream has yet to formalize the study of this question, as they are still pretending -- in contradiction to observations -- that double layers are not common astrophysical phenomena which actually do things of importance.\n\nTheir tool of choice at the moment is magnetic reconnection, so the question goes essentially unacknowledged as to whether or not these might be duplicate concepts.",
-    "uid" : "E020DC9D-11E3-4359-92D2-52DF8FB09C7A",
-    "name" : "Phys.org Post - Magnetic Reconnection or Plasma Double Layers? - Part 5",
-    "keyword" : "pp magnetic reconnection 5"
-  }
-}

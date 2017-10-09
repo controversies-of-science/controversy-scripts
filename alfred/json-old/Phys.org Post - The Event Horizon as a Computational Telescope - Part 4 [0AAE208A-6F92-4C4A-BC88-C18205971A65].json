@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"... In other words, as the disco ball spins, those mirrors change locations and we get to observe different parts of the image. The imaging algorithms we develop fill in the missing gaps of the disco ball in order to reconstruct the underlying black hole image. If we had telescopes located everywhere on the globe — in other words, the entire disco ball — this would be trivial. However, we only see a few samples, and for that reason, there are an infinite number of possible images that are perfectly consistent with our telescope measurements. However, not all images are created equal. Some of those images look more like what we think of as images than others. And so, my role in helping to take the first image of a black hole is to design algorithms that find the most reasonable image that also fits the telescope measurements ...\"",
-    "uid" : "0AAE208A-6F92-4C4A-BC88-C18205971A65",
-    "name" : "Phys.org Post - The Event Horizon as a \"Computational Telescope\" - Part 4",
-    "keyword" : "pp event horizon 4"
-  }
-}

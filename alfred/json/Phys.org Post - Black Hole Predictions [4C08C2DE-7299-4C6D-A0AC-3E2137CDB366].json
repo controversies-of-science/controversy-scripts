@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "\"We should not hold our breath waiting for a real picture [of a black hole], but we can infer a lot about the hole before we have an actual image. The radiation from such objects comes primarily from hot gas swirling downward into the gravitational pit. Instruments already in space can collect all the emitted radiation and measure its spectrum. Any spectral feature would display huge Doppler effects, because the gas is moving at a large fraction of the speed of light. There is also an extra redshift -- the so-called gravitational redshift -- resulting from each photon loss of energy as it climbs out from a region where gravity is so strong. Measurements of this radiation (mainly X-rays rather than visible light, because the gas is so hot) can probe the flow very close to the hole and diagnose whether the 'shape of space' around it agrees with what theory predicts.\"\n\n- Martin Rees, Our Cosmic Habitat (2001) p.90-91",
+    "uid" : "4C08C2DE-7299-4C6D-A0AC-3E2137CDB366",
+    "name" : "Phys.org Post - Black Hole Predictions",
+    "keyword" : "pp black hole predictions"
+  }
+}

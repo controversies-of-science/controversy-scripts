@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "Why Space Needs to Go Beyond the MHD Box\nGeorge K Parks\nSpace Sciences Laboratory, University of California, Berkeley, CA 94720, U.S.A. (2004)\n\n\"Abstract. Magnetohydrodynamic (MHD) theory has been used in space physics for more than forty years, yet many important questions about space plasmas remain unanswered ... Questions have been raised from the beginning of the space era whether MHD theory can describe correctly space plasmas that are collisionless and rarely in thermal equilibrium. Ideal MHD fluids do not induce electromotive force, hence they lose the capability to interact electromagnetically. No currents and magnetic fields are generated, rendering ideal MHD theory not very useful for space plasmas.\"\n\n(cont'd)",
-    "dontautoexpand" : true,
-    "uid" : "E4960619-7E61-42E9-A746-6AFE9D2FBE54",
-    "name" : "Phys.org Post - Why Space Needs to Go Beyond the MHD Box - Part 1",
-    "keyword" : "pp mhd box 1"
-  }
-}

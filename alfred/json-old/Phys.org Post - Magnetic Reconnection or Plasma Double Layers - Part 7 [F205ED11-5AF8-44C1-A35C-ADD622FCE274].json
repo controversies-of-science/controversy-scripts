@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "The Electric Sky\nDon Scott\np.120\n\n\"'Magnetic reconnection' refers to any location within a magnetic field where certain of the 'lines' form a 'saddle point'. Alfven called these 'neutral points.' At such a point, two magnetic field lines come directly toward each other and two others leave at some angle from the intersection point. It is easy to demonstrate that, at any such point, the field strength is zero-valued. Where the field strength is zero, the energy stored at that point is also zero.\n\nEnergetic ions released from the Sun were first observed in the 1940s, and the appallingly mistaken notion of magnetic field lines 'reconnecting' has since been proposed to explain this phenomenon.  One web page gives an uncommonly clear history of the invention ...\n\n(cont'd)",
-    "uid" : "F205ED11-5AF8-44C1-A35C-ADD622FCE274",
-    "name" : "Phys.org Post - Magnetic Reconnection or Plasma Double Layers? - Part 7",
-    "keyword" : "pp magnetic reconnection 7"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"... The ideal MHD theory was introduced by Alfven when he was studying the behavior of MHD waves. He formulated the wave eq for finite conductivity fluid, incorporating Ohm’s law which allowed currents to flow ... After he derived the wave eq which included the dissipative term, he studied the behavior of the waves imagining the fluid had infinite conductivity. This led to the concept of the frozen-in magnetic field but only as a limiting case. However, since Alfven’s work, space theorists have ignored the small E-field from the outset ...\"",
-    "dontautoexpand" : true,
-    "uid" : "1396B5C3-778B-4FBE-AC04-53836859EE38",
-    "name" : "Phys.org Post - Importance of E-fields in Modeling Space Plasmas - Part 5",
-    "keyword" : "pp mhd efields 5"
-  }
-}

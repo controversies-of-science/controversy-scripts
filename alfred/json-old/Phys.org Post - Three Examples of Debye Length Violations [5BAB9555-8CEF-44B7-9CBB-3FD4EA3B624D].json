@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "3 Examples of Debye Length Violations:\n\n(1) Wikipedia reports that the theoretical Debye length should restrict electric fields to 1 millimeter. When one yet further considers that red sprites, a form of upper-atmospheric lightning which can connect to the lower ionosphere, can reach 50km in length, it would seem that the Debye length has failed to constrain the discharge by a factor of 50 million-to-1.\n\n(2) http:\/\/sci.esa.int\/cassini-huygens\/54777-cassini-caught-in-hyperions-electron-beam\/ - The solar wind is theoretically limited to EM discharges of only 10 meters. Yet, when Cassini passed by Hyperion, it received a 200-volt electric shock at a distance of 2,000 km.\n\n(3) http:\/\/science.nasa.gov\/science-news\/science-at-nasa\/2008\/30oct_ftes\/ - Earth connects with a \"magnetic portal\" to the Sun every 8 minutes. A 93 million mile fossil field as wide as the Earth that appears every 8 minutes!\n\nThe universe is not cooperating with this assumption.",
-    "dontautoexpand" : true,
-    "uid" : "5BAB9555-8CEF-44B7-9CBB-3FD4EA3B624D",
-    "name" : "Phys.org Post - Three Examples of Debye Length Violations",
-    "keyword" : "pp debye"
-  }
-}

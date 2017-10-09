@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "\"Textbooks and encyclopaedias of physics describe the quantum of light-energy as a 'particle' of light, called a 'photon', travelling at the finite and constant speed c. However, the received Theory of Relativity tells us that the mass of anything travelling at the speed of light, c, is infinite. But the mass (e\/c2) of a quantum of light-energy is absolutely miniscule, being in the order of 10^-35 kilogram for visible light. How can this be?\n\nSome physicists seek to solve this paradox by assuming that the photon has zero mass in its own stationary rest-frame. But, in relativity, it is axiomatic that light -- hence the photon -- has the velocity c in all reference -- frames, so that the photon is never stationary but always travels at the speed c. No attempt to make sense of this conundrum of the 'enigmatic photon' has ever succeeded.\"\n\n(cont'd)",
+    "uid" : "B03E33D6-7252-4425-BC94-9033E127917C",
+    "name" : "Phys.org Post - The Contradictions of the Photon - Part 1",
+    "keyword" : "pp photon 1"
+  }
+}

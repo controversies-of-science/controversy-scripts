@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"... Anyway, the latest NASA press release and the other article that was released with it contain several real errors I think we have to talk about.  Let me quote from the NASA press release:\n\nQuote [from article titled 'NASA directly observes fundamental process of nature for 1st time']:\n\n'Any set of magnetic fields can be thoguht of as a row of lines. These field lines are always anchored to some body - a planet, a star - creating a giant magnetic network surrounding it. It is at the boundaries of two such networks where magnetic reconnection happens.' (NASA press release)\n\nWell, this is totally incorrect in at least two ways:\n\nMagnetic field lines are not anchored to bodies.  They go right through bodies.  The magnetic field of the Earth comes up around the Earth, but it also goes right back down through the Earth ...\"\n\n(cont'd)",
-    "uid" : "FA35B4CB-1D48-4B34-A6A2-D0A890B7AD76",
-    "name" : "Phys.org Post - Magnetic Reconnection or Plasma Double Layers? - Part 16",
-    "keyword" : "pp magnetic reconnection 16"
-  }
-}

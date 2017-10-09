@@ -1,9 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"... Although electric fields in high conductivity plasmas are small, this small electric field is what enables plasmas to interact electromagnetically and produce currents and magnetic fields. In ideal MHD theory, which ignores EMF, this capability is lost. Hence, ideal MHD theory can describe only preexisting currents and magnetic fields that are then assumed to be frozen in the fluid. The dynamics of space plasmas involve generation of new currents and magnetic fields that are not explained by the theory ...\"",
-    "dontautoexpand" : true,
-    "uid" : "C55C0502-1FDA-4622-AE0C-EDD90088CF28",
-    "name" : "Phys.org Post - Why Space Needs to Go Beyond the MHD Box - Part 4",
-    "keyword" : "pp mhd box 4"
-  }
-}

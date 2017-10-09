@@ -1,8 +1,0 @@
-{
-  "alfredsnippet" : {
-    "snippet" : "(cont'd)\n\n\"Another way of looking at this is to consider the electrical resistance of the plasma. Current flowing across the magnetic field direction will experience more resistance than current flowing along the magnetic field direction because of the U × B term in the Lorentz Force Law. Effectively, the parallel resistance is less than the perpendicular resistance, so the current tends to flow in alignment with the magnetic field.\"\n\nThe author of this Essential Guide is Bob Johnson. You guys have not had much exposure to him, but what you are going to find is that he understands this subject very deeply ...\n\n\"Detailed mathematical analysis shows that I and B interact in such a way that both I and B tend to spiral parallel to each other around an axis aligned with the external B. The net effect is that I and B both follow a helical path aligned with the direction of the external B field.\"",
-    "uid" : "2C8BA55B-BD3D-426E-ADF0-E99E6A88D949",
-    "name" : "Phys.org Post - Why Cosmic Filaments Are Electric - Part 2",
-    "keyword" : "pp filament 2"
-  }
-}
