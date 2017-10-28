@@ -48,7 +48,7 @@ new Promise(function (resolve, reject) {
 			// Generate the slug
 			var slug = (0, _utils.createSlug)(gplusCard.name);
 
-			console.log('Saving JSON to ' + _config.output.feeds + ': ' + slug);
+			console.log('Saving JSON to ' + _config.output.cards + ': ' + slug);
 
 			// Get the hardcoded JSON data for this card by matching slugs
 			var json = cardsJSON.filter(function (el) {
@@ -64,6 +64,7 @@ new Promise(function (resolve, reject) {
 
 			// This is the redundant part
 			var algoliaMetadata = {
+				cardCategory: gplusCard.category,
 				slug: json.slug,
 				shortSlug: json['short-slug'],
 				gplusUrl: gplusCard.url,
@@ -94,9 +95,12 @@ new Promise(function (resolve, reject) {
 			algolia.sliced.cards = algolia.sliced.cards.concat(cardNameJSON);
 
 			// Save card category one time
-			var categoryJSON = Object.assign({}, { cardCategory: gplusCard.category }, algoliaMetadata);
+			// let categoryJSON = Object.assign({},
+			// 	{ cardCategory: gplusCard.category },
+			// 	algoliaMetadata);
 
-			algolia.sliced.cards = algolia.sliced.cards.concat(categoryJSON);
+			// algolia.sliced.cards =
+			// 	algolia.sliced.cards.concat(categoryJSON);
 
 			// Save card summary one time
 			var summaryJSON = Object.assign({}, { cardSummary: gplusCard.summary }, algoliaMetadata);

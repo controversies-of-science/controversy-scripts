@@ -42,19 +42,20 @@ new Promise((resolve, reject) => {
 			// Generate the slug
 			let slug = createSlug(gplusCard.name);
 
-			console.log('Saving JSON to ' + output.feeds + ': ' + slug);
+			console.log('Saving JSON to ' + output.cards + ': ' + slug);
 
 			// Get the hardcoded JSON data for this card by matching slugs
 			let json = cardsJSON.filter((el) => el.slug === slug ? true : false)[0],
 
-				// Split and label the text by paragraphs
-				splitByParagraph = splitText(slug, gplusCard.text, stop.cards, true);
+			// Split and label the text by paragraphs
+			splitByParagraph = splitText(slug, gplusCard.text, stop.cards, true);
 
 			// Remove the last paragraph, which is an unnecessary hashtag category
 			splitByParagraph.pop();
 
-				// This is the redundant part
+			// This is the redundant part
 			let algoliaMetadata = {
+					cardCategory: gplusCard.category,
 					slug: json.slug,
 					shortSlug: json['short-slug'],
 					gplusUrl: gplusCard.url,
@@ -88,12 +89,12 @@ new Promise((resolve, reject) => {
 				algolia.sliced.cards.concat(cardNameJSON);
 
 			// Save card category one time
-			let categoryJSON = Object.assign({},
-				{ cardCategory: gplusCard.category },
-				algoliaMetadata);
+			// let categoryJSON = Object.assign({},
+			// 	{ cardCategory: gplusCard.category },
+			// 	algoliaMetadata);
 
-			algolia.sliced.cards =
-				algolia.sliced.cards.concat(categoryJSON);
+			// algolia.sliced.cards =
+			// 	algolia.sliced.cards.concat(categoryJSON);
 
 			// Save card summary one time
 			let summaryJSON = Object.assign({},
