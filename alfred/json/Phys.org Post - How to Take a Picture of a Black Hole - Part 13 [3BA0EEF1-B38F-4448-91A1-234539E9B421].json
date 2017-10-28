@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n9:01\n\n\"Different types of images have very distinct features. We can easily tell the difference between black hole simulation images and images we take every day here on Earth. We need a way to tell our algorithms what images look like without imposing one type of image's features too much. One way we can try to get around this is by imposing the features of different kinds of images and seeing how the type of image we assume affects our reconstructions. If all images' types produce a very similar-looking image, then we can start to become more confident that the image assumptions we're making are not biasing this picture that much.\"\n\n9:36\n\n\"This is a little bit like giving the same description to three different sketch artists from all around the world. If they all produce a very similar-looking face, then we can start to become confident that they're not imposing their own cultural biases on the drawings ...\"\n\n(cont'd)",
+    "uid" : "3BA0EEF1-B38F-4448-91A1-234539E9B421",
+    "name" : "Phys.org Post - How to Take a Picture of a Black Hole - Part 13",
+    "keyword" : "pp black holes 13"
+  }
+}

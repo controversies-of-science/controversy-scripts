@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n6:45\n\n\"Just as a forensic sketch artist uses limited descriptions to piece together a picture using their knowledge of face structure, the imaging algorithms I develop use our limited telescope data to guide us to a picture that also looks like stuff in our universe. Using these algorithms, we're able to piece together pictures from this sparse, noisy data. So here I show a sample reconstruction done using simulated data, when we pretend to point our telescopes to the black hole in the center of our galaxy. Although this is just a simulation, reconstruction such as this give us hope that we'll soon be able to reliably take the first image of a black hole and from it, determine the size of its ring. Although I'd love to go on about all the details of this algorithm, luckily for you, I don't have the time.\"\n\n(cont'd)",
+    "uid" : "69A77A0E-2282-412C-B609-A3340E886EB9",
+    "name" : "Phys.org Post - How to Take a Picture of a Black Hole - Part 10",
+    "keyword" : "pp black holes 10"
+  }
+}

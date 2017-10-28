@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... One way we can try to impose different image features is by using pieces of existing images. So we take a large collection of images, and we break them down into their little image patches. We then can treat each image patch a little bit like pieces of a puzzle. And we use commonly seen puzzle pieces to piece together an image that also fits our telescope measurements.\"\n\n10:14\n\n\"Different types of images have very distinctive sets of puzzle pieces. So what happens when we take the same data but we use different sets of puzzle pieces to reconstruct the image? Let's first start with black hole image simulation puzzle pieces. OK, this looks reasonable. This looks like what we expect a black hole to look like. But did we just get it because we just fed it little pieces of black hole simulation images? Let's try another set of puzzle pieces from astronomical, non-black hole objects. OK, we get a similar-looking image ...\"\n\n(cont'd)",
+    "uid" : "0D3A3C62-E771-43DA-9067-43E073F447A1",
+    "name" : "Phys.org Post - How to Take a Picture of a Black Hole - Part 14",
+    "keyword" : "pp black holes 14"
+  }
+}

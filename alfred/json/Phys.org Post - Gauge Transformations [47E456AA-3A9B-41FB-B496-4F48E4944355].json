@@ -3,6 +3,6 @@
     "snippet" : "Etienne Klein & Marc Lachièze-Rey, The Quest for Unity - The Adventure of Physics, p.75\n\n\"Maxwell's equations involve mathematical constructs called potentials, which make it possible to calculate electric and magnetic fields as functions of position and time. These potentials are not directly observable quantities. For one thing, Maxwell's equations do not determine them absolutely; only differences in potential matter. One can arbitrarily change the reference of the potential, or its 'zero-point' as it is often called, without in any way affecting the laws of physics. Such modifications of the potential are referred to as 'gauge transformations.'\"",
     "uid" : "47E456AA-3A9B-41FB-B496-4F48E4944355",
     "name" : "Phys.org Post - Gauge Transformations",
-    "keyword" : "pp gauge transformations"
+    "keyword" : "pp math"
   }
 }
