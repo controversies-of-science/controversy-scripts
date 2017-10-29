@@ -125,6 +125,8 @@ Promise.all(promiseArray)
 				algoliaFeedPost = [],
 
 				algoliaMetadata = {
+					facetCategory: 'Feed Posts',
+					facetSubCategory: 'person', // TODO
 					card: feedPostAttributes.controversy,
 					cardSlug: json.card,
 					feedSlug: slug,

@@ -64,7 +64,8 @@ new Promise(function (resolve, reject) {
 
 			// This is the redundant part
 			var algoliaMetadata = {
-				cardCategory: gplusCard.category,
+				facetCategory: 'Controversy Cards',
+				facetSubCategory: gplusCard.category,
 				slug: json.slug,
 				shortSlug: json['short-slug'],
 				gplusUrl: gplusCard.url,

@@ -136,6 +136,8 @@ Promise.all(promiseArray)
 			var feedPostParagraphs = (0, _utils.splitText)(slug, feedPostHTML, _config.stop.feeds),
 			    algoliaFeedPost = [],
 			    algoliaMetadata = {
+				facetCategory: 'Feed Posts',
+				facetSubCategory: 'person', // TODO
 				card: feedPostAttributes.controversy,
 				cardSlug: json.card,
 				feedSlug: slug,

@@ -75,11 +75,13 @@ function processRawAlfredJSON() {
 				// Remove keyword prefix that was used to specify
 				// that this is a Phys.org-formatted snippet
 				quoteKeyword = quoteKeyword.replace(/^pp\s/, '');
+				quoteKeyword = quoteKeyword.replace(/\s\d+$/, '');
 				
 				physorgJSON.push({
 					id: createSlug(quoteName),
 					quoteName: quoteName,
-					keyword: quoteKeyword,
+					facetCategory: 'Quotes',
+					facetSubCategory: quoteKeyword,
 					quoteParagraph: quoteSnippet
 				});
 			} else if (quoteName.match(/^G\+ Post - /)) {
