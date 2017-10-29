@@ -158,13 +158,13 @@ Promise.all(promiseArray)
 				};
 
 			algolia.sliced.feeds = algolia.sliced.feeds.concat(Object.assign({},
-				{ postName: feedPostAttributes.title },
+				{ postName: feedPostAttributes.title, recordType: 'postName' },
 				algoliaMetadata
 			));
 
 			feedPostParagraphs.forEach(paragraph => {
 				algoliaFeedPost.push(Object.assign({},
-					{ id: paragraph.id },
+					{ id: paragraph.id, recordType: 'postParagraph' },
 					algoliaMetadata,
 					{ postParagraph: paragraph.paragraph }))
 			});

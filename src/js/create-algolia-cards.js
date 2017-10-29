@@ -91,20 +91,12 @@ new Promise(function (resolve, reject) {
 			};
 
 			// Save card name one time
-			var cardNameJSON = Object.assign({}, { cardName: gplusCard.name }, algoliaMetadata);
+			var cardNameJSON = Object.assign({}, { cardName: gplusCard.name, recordType: 'cardName' }, algoliaMetadata);
 
 			algolia.sliced.cards = algolia.sliced.cards.concat(cardNameJSON);
 
-			// Save card category one time
-			// let categoryJSON = Object.assign({},
-			// 	{ cardCategory: gplusCard.category },
-			// 	algoliaMetadata);
-
-			// algolia.sliced.cards =
-			// 	algolia.sliced.cards.concat(categoryJSON);
-
 			// Save card summary one time
-			var summaryJSON = Object.assign({}, { cardSummary: gplusCard.summary }, algoliaMetadata);
+			var summaryJSON = Object.assign({}, { cardSummary: gplusCard.summary, recordType: 'cardSummary' }, algoliaMetadata);
 
 			// Do not save the summary when it is exactly the same as the card name
 			if (gplusCard.name !== gplusCard.summary) {
@@ -113,7 +105,7 @@ new Promise(function (resolve, reject) {
 
 			// Save all paragraphs for card just one time
 			var smallerChunkJSON = splitByParagraph.map(function (paragraphJSON) {
-				return Object.assign({}, { id: paragraphJSON.id,
+				return Object.assign({}, { id: paragraphJSON.id, recordType: 'cardParagraph',
 					cardParagraph: paragraphJSON.paragraph }, algoliaMetadata);
 			});
 

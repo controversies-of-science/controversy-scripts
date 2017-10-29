@@ -167,10 +167,10 @@ Promise.all(promiseArray)
 				}
 			};
 
-			algolia.sliced.feeds = algolia.sliced.feeds.concat(Object.assign({}, { postName: feedPostAttributes.title }, algoliaMetadata));
+			algolia.sliced.feeds = algolia.sliced.feeds.concat(Object.assign({}, { postName: feedPostAttributes.title, recordType: 'postName' }, algoliaMetadata));
 
 			feedPostParagraphs.forEach(function (paragraph) {
-				algoliaFeedPost.push(Object.assign({}, { id: paragraph.id }, algoliaMetadata, { postParagraph: paragraph.paragraph }));
+				algoliaFeedPost.push(Object.assign({}, { id: paragraph.id, recordType: 'postParagraph' }, algoliaMetadata, { postParagraph: paragraph.paragraph }));
 			});
 
 			algolia.sliced.feeds = algolia.sliced.feeds.concat(algoliaFeedPost);

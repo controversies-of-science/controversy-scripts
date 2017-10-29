@@ -78,6 +78,7 @@ function processRawAlfredJSON() {
 				quoteKeyword = quoteKeyword.replace(/\s\d+$/, '');
 				
 				physorgJSON.push({
+					recordType: 'quote',
 					id: createSlug(quoteName),
 					quoteName: quoteName,
 					facetCategory: 'Quotes',
