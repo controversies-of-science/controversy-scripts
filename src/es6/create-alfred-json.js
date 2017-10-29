@@ -79,6 +79,7 @@ function processRawAlfredJSON() {
 				
 				physorgJSON.push({
 					recordType: 'quote',
+					sortBy: quoteName,
 					id: createSlug(quoteName),
 					quoteName: quoteName,
 					facetCategory: 'Quotes',
