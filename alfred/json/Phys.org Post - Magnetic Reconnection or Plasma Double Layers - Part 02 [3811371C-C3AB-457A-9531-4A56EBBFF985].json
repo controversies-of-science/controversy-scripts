@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "(cont'd)\n\n\"... A double layer is a perturbation that occurs in a 'collisionless' plasma, traveling along the magnetic field and consisting of two layers of charge. As in a parallel-plate capacitor, the electric field between the layers gives rise to a corresponding potential drop. In space plasmas, the two charged layers grow out of plasma instabilities, and they do not recombine because they are moving, so, for instance, an electron density enhancement leads the ion density enhancement. The Van Allen probes are equipped with measuring spheres tethered on 50-meter-long cables that allow determination of the three-dimensional electric field at 512 samples per second. For occasional short periods, data can be taken much faster, at 16,384 samples per second. Such a high time resolution is needed to characterize double layers, since their transit past the spacecraft typically lasts less than a millisecond ...\"\n\n(cont'd)",
+    "uid" : "3811371C-C3AB-457A-9531-4A56EBBFF985",
+    "name" : "Phys.org Post - Magnetic Reconnection or Plasma Double Layers? - Part 02",
+    "keyword" : "pp magnetic reconnection 2"
+  }
+}
