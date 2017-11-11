@@ -49,6 +49,7 @@
     "pagedown": "^1.1.0",
     "prompt": "^1.0.0",
     "request": "^2.79.0",
+    "short-hash": "^1.0.0",
     "slugify": "^1.1.0",
     "thumbnail": "^0.1.9",
     "whatwg-url": "^6.1.0"

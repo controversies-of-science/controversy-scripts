@@ -3,7 +3,8 @@ import fs from 'fs';
 import { alfred } from './libs/config';
 import { removeSystemFiles, createSlug } from './libs/utils';
 import loadJSONFile from 'load-json-file';
-import pageDown from 'pagedown'; // Markdown processor used by Stack 
+import pageDown from 'pagedown'; // Markdown processor used by Stack
+import shortHash from 'short-hash';
 
 let zip,
 	rawQuotes,
@@ -61,7 +62,10 @@ function processRawAlfredJSON() {
 		rawAlfredJSON.forEach(quote => {
 			let quoteName = quote['alfredsnippet']['name'],
 				quoteKeyword = quote['alfredsnippet']['keyword'],
-				quoteSnippet = quote['alfredsnippet']['snippet'];
+				quoteSnippet = quote['alfredsnippet']['snippet'],
+				quoteSeries = quoteName, // default when just one part
+				quoteSeriesItem = 0, // default when just one part
+				quoteSeriesHash;
 
 			// Remove any continuation indicators from snippets
 			// These only occur in the phys.org posts
@@ -71,6 +75,12 @@ function processRawAlfredJSON() {
 			if (quoteName.match(/^Phys\.org Post - /)) {
 				// Remove any prefixes from the names
 				quoteName = quoteName.replace('Phys.org Post - ', '');
+
+				if (quoteName.match(' - Part ')) {
+					[quoteSeries, quoteSeriesItem] = quoteName.split(' - Part ');
+				}
+
+				quoteSeriesHash = shortHash(quoteSeries);
 
 				// Remove keyword prefix that was used to specify
 				// that this is a Phys.org-formatted snippet
@@ -82,6 +92,8 @@ function processRawAlfredJSON() {
 					sortBy: quoteName,
 					id: createSlug(quoteName),
 					quoteName: quoteName,
+					quoteSeriesHash,
+					quoteSeriesItem,
 					facetCategory: 'Quotes',
 					facetSubCategory: quoteKeyword,
 					quoteParagraph: quoteSnippet

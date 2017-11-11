@@ -1,5 +1,8 @@
 'use strict';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); // Markdown processor used by Stack
+
+
 var _admZip = require('adm-zip');
 
 var _admZip2 = _interopRequireDefault(_admZip);
@@ -20,9 +23,11 @@ var _pagedown = require('pagedown');
 
 var _pagedown2 = _interopRequireDefault(_pagedown);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _shortHash = require('short-hash');
 
-// Markdown processor used by Stack 
+var _shortHash2 = _interopRequireDefault(_shortHash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var zip = void 0,
     rawQuotes = void 0,
@@ -75,7 +80,12 @@ function processRawAlfredJSON() {
 		rawAlfredJSON.forEach(function (quote) {
 			var quoteName = quote['alfredsnippet']['name'],
 			    quoteKeyword = quote['alfredsnippet']['keyword'],
-			    quoteSnippet = quote['alfredsnippet']['snippet'];
+			    quoteSnippet = quote['alfredsnippet']['snippet'],
+			    quoteSeries = quoteName,
+			    // default when just one part
+			quoteSeriesItem = 0,
+			    // default when just one part
+			quoteSeriesHash = void 0;
 
 			// Remove any continuation indicators from snippets
 			// These only occur in the phys.org posts
@@ -85,6 +95,17 @@ function processRawAlfredJSON() {
 			if (quoteName.match(/^Phys\.org Post - /)) {
 				// Remove any prefixes from the names
 				quoteName = quoteName.replace('Phys.org Post - ', '');
+
+				if (quoteName.match(' - Part ')) {
+					var _quoteName$split = quoteName.split(' - Part ');
+
+					var _quoteName$split2 = _slicedToArray(_quoteName$split, 2);
+
+					quoteSeries = _quoteName$split2[0];
+					quoteSeriesItem = _quoteName$split2[1];
+				}
+
+				quoteSeriesHash = (0, _shortHash2.default)(quoteSeries);
 
 				// Remove keyword prefix that was used to specify
 				// that this is a Phys.org-formatted snippet
@@ -96,6 +117,8 @@ function processRawAlfredJSON() {
 					sortBy: quoteName,
 					id: (0, _utils.createSlug)(quoteName),
 					quoteName: quoteName,
+					quoteSeriesHash: quoteSeriesHash,
+					quoteSeriesItem: quoteSeriesItem,
 					facetCategory: 'Quotes',
 					facetSubCategory: quoteKeyword,
 					quoteParagraph: quoteSnippet
