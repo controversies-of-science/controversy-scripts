@@ -120,7 +120,7 @@ function copyThumbnailToS3(thumbnailPath, bucketID, cardSlug) {
 		s3 = new _awsSdk2.default.S3();
 
 		resolve(new _awsSdk2.default.SharedIniFileCredentials({
-			profile: 'controversy'
+			profile: 'serverless'
 		}));
 	}).then(function (credentials) {
 		_awsSdk2.default.config.credentials = credentials;

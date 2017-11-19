@@ -87,7 +87,7 @@ export function copyThumbnailToS3(thumbnailPath, bucketID, cardSlug) {
 		s3 = new AWS.S3();
 
 		resolve(new AWS.SharedIniFileCredentials({
-			profile: 'controversy'
+			profile: 'serverless'
 		}));
 	})
 
