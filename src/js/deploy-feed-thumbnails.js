@@ -66,7 +66,7 @@ function copyFeedThumbnails() {
 			var feedSlug = getSlugFromPath(feedPath),
 			    discourseLevel = getLevelFromPath(feedPath);
 
-			(0, _utils.copyThumbnailToS3)(feedPath + '/thumbnail.jpg', feedBucketID, 'halton-arp-the-modern-galileo/' + discourseLevel + '/' + feedSlug).then(function () {
+			(0, _utils.copyThumbnailToS3)(feedPath + '/' + _config.thumbnailFilename, feedBucketID, 'halton-arp-the-modern-galileo/' + discourseLevel + '/' + feedSlug).then(function () {
 				++feedCount;
 
 				if (feedCount === totalFeeds) {

@@ -1,5 +1,5 @@
 import { removeSystemFiles, copyThumbnailToS3, getIDFromS3URL } from './libs/utils';
-import { url, dir } from './libs/config';
+import { url, dir, thumbnailFilename } from './libs/config';
 import fs from 'fs';
 
 let feedBucketID,
@@ -60,7 +60,7 @@ function copyFeedThumbnails() {
 				discourseLevel = getLevelFromPath(feedPath);
 
 			copyThumbnailToS3(
-				feedPath + '/thumbnail.jpg',
+				feedPath + '/' + thumbnailFilename,
 				feedBucketID,
 				'halton-arp-the-modern-galileo/' + discourseLevel + '/' + feedSlug
 
