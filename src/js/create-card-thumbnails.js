@@ -46,8 +46,8 @@ new Promise(function (resolve, reject) {
 				}
 
 				// createThumbnail(input, output, isAlreadyGenerated)
-				(0, _utils.createThumbnail)(algolia.card.images[cardCount], algolia.card.images[cardCount], files.includes('thumbnail.jpg')).then(function () {
-					if (!files.includes('thumbnail.jpg')) {
+				(0, _utils.createThumbnail)(algolia.card.images[cardCount], algolia.card.images[cardCount], files.includes(_config.thumbnailFilename)).then(function () {
+					if (!files.includes(_config.thumbnailFilename)) {
 						console.log('Thumbnail generated for ' + algolia.card.images[cardCount]);
 					}
 

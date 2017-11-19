@@ -3,8 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-var thumbnailSize = exports.thumbnailSize = 105,
-    // was 506
+var thumbnailSize = exports.thumbnailSize = 640,
+    // was 105
+thumbnailFilename = exports.thumbnailFilename = 'small.jpg',
+
 
 // Hard-coded local data directory structures
 dir = exports.dir = {

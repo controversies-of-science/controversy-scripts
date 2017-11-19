@@ -1,5 +1,6 @@
 export const
-	thumbnailSize = 105, // was 506
+	thumbnailSize = 640, // was 105
+	thumbnailFilename = 'small.jpg',
 
 	// Hard-coded local data directory structures
 	dir = {
