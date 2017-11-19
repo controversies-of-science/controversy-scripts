@@ -81,7 +81,7 @@ function splitText(slug, text, breakString) {
 	}) : allParagraphs;
 }
 
-// Generate thumbnail.jpg from large.jpg for entire directory.  Width is set in
+// Generate [thumbnailFilename] from large.jpg for entire directory.  Width is set in
 // config.es
 function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise(function (resolve, reject) {
@@ -98,7 +98,7 @@ function createThumbnail(input, output, isAlreadyGenerated) {
 					reject(err);
 				} else {
 					// Rename to thumbnail.jpg
-					_fs2.default.rename(input + '/' + filename, input + '/thumbnail.jpg', function () {
+					_fs2.default.rename(input + '/' + filename, input + '/' + _config.thumbnailFilename, function () {
 						resolve();
 					});
 				}
@@ -124,7 +124,7 @@ function copyThumbnailToS3(thumbnailPath, bucketID, cardSlug) {
 		}));
 	}).then(function (credentials) {
 		_awsSdk2.default.config.credentials = credentials;
-		var bucketKey = cardSlug + '/thumbnail.jpg';
+		var bucketKey = cardSlug + '/' + _config.thumbnailFilename;
 
 		console.log('Copying ' + thumbnailPath + ' to s3://' + bucketID + '/' + bucketKey);
 

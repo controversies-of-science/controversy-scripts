@@ -1,4 +1,4 @@
-import { thumbnailSize, dir, thumbnailFilename } from './libs/config';
+import { thumbnailSize, dir } from './libs/config';
 import { createThumbnail, removeSystemFiles } from './libs/utils';
 
 import fs from 'fs';
@@ -41,10 +41,10 @@ new Promise((resolve, reject) => {
 				// createThumbnail(input, output, isAlreadyGenerated)
 				createThumbnail(algolia.card.images[cardCount],
 					algolia.card.images[cardCount],
-					files.includes(thumbnailFilename))
+					files.includes('thumbnail.jpg'))
 
 				.then(() => {
-					if (!files.includes(thumbnailFilename)) {
+					if (!files.includes('thumbnail.jpg')) {
 						console.log('Thumbnail generated for ' +
 							algolia.card.images[cardCount]);
 					}

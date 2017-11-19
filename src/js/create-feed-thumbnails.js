@@ -61,8 +61,8 @@ new Promise(function (resolve, reject) {
 				}
 
 				// createThumbnail(input, output, isAlreadyGenerated)
-				(0, _utils.createThumbnail)(algolia.feed.images[feedCount], algolia.feed.images[feedCount], files.includes('thumbnail.jpg')).then(function () {
-					if (!files.includes('thumbnail.jpg')) {
+				(0, _utils.createThumbnail)(algolia.feed.images[feedCount], algolia.feed.images[feedCount], files.includes(_config.thumbnailFilename)).then(function () {
+					if (!files.includes(_config.thumbnailFilename)) {
 						console.log('Thumbnail generated for ' + algolia.feed.images[feedCount]);
 					}
 

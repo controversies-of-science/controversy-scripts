@@ -2,7 +2,7 @@ import fs from 'fs';
 import Thumbnail from 'thumbnail';
 import slugify from 'slugify';
 import request from 'request';
-import { thumbnailSize } from './config';
+import { thumbnailSize, thumbnailFilename } from './config';
 // import { execSync } from 'child_process';
 import AWS from 'aws-sdk';
 
@@ -48,7 +48,7 @@ export function splitText(slug, text, breakString, removeFirstParagraph = false)
 		allParagraphs;
 }
 
-// Generate thumbnail.jpg from large.jpg for entire directory.  Width is set in
+// Generate [thumbnailFilename] from large.jpg for entire directory.  Width is set in
 // config.es
 export function createThumbnail(input, output, isAlreadyGenerated) {
 	return new Promise((resolve, reject) => {
@@ -65,7 +65,7 @@ export function createThumbnail(input, output, isAlreadyGenerated) {
 					reject(err);
 				} else {
 					// Rename to thumbnail.jpg
-					fs.rename(input + '/' + filename, input + '/thumbnail.jpg', () => {
+					fs.rename(input + '/' + filename, input + '/' + thumbnailFilename, () => {
 						resolve();
 					});
 				}
@@ -93,7 +93,7 @@ export function copyThumbnailToS3(thumbnailPath, bucketID, cardSlug) {
 
 	.then(credentials => {
 		AWS.config.credentials = credentials;
-		const bucketKey = cardSlug + '/thumbnail.jpg';
+		const bucketKey = cardSlug + '/' + thumbnailFilename;
 
 		console.log('Copying ' + thumbnailPath + ' to s3://' + bucketID + '/' + bucketKey);
 
